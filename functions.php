@@ -2,7 +2,7 @@
 
 function connectDB() {
 ## LOCAL
-$db = mysql_connect('localhost','root','qwas1234');
+$db = mysql_connect('localhost','root','xxxxxxxx');
 	if (!$db) {
 	die("Unable to connect to database");
 }
@@ -11,30 +11,6 @@ if (!mysql_select_db('osma')) {
 		die("Unable to access osma database");
 }
 
-## Chrisj
-#$db = mysql_connect('localhost','qxmyjohq_osma','qwas1234');
-#	if (!$db) {
-#	die("Unable to connect to database");
-#}
-#
-#
-#if (!mysql_select_db('qxmyjohq_')) {
-#		die("Unable to access database");
-#}
-
-
-
-## OPENSHIFT
-
-#define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
-#define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT')); 
-#define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-#define('DB_PASS',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-#define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
-##define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
-#
-#$dsn = 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port='.DB_PORT;
-#$dbh = new PDO($dsn, DB_USER, DB_PASS);
 
 }
 
