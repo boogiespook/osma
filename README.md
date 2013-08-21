@@ -17,3 +17,5 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with OSMA.  If not, see <http://www.gnu.org/licenses/>.
+
+** NOTE: All data within the custromerDetails table is completely made up **
