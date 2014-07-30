@@ -106,13 +106,14 @@ connectDB();
 		</div>
 
 <?php
-
+if ($page != "clientDetails.php") {
 echo '<a id = "startOver" href="destroySession.php" class="button">Start Over</a>';
 #  if (($page != "clientDetails.php") || ($page != "workshop.php") || (!preg_match("/^[0-9]/",$page))) {
-
+}
+	
 if (!preg_match("/^[0-9]|clientDetails|workshop/",$page)) {
-    echo '<a href="index.php?page=' . $nextpage . '" class="button">Next</a>';
-  }
+    echo '<a href="index.php?page=' . $nextpage . '" class="button" id="nextButton">Next</a>';
+  }   
 if (preg_match("/assessment/",$page)) {
   echo '<a class="button" target=_blank href="graph1.php">Graph by Category</a>';
   echo '<a class="button" target=_blank href="graph2.php">Overall Graph</a>';
@@ -126,7 +127,7 @@ progressBar(<?php echo $progress ?>, $('#progressBar'));
 </script>
 </div>
 <div id="footer">
-	<p>Copyright (c) 2013 Red Hat. All rights reserved. </p>
+	<p>Copyright (c) 2014 Chris Jenkins. </p>
 </div>
 <!-- end #footer -->
 </body>

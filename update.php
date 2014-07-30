@@ -3,7 +3,6 @@ session_start();
 $nextPage=$_REQUEST['nextPage'] . ".php";
 include("functions.php");
 connectDB();
-#echo "Next Page: $nextPage <br><br>";
 
 #phpinfo();
 
@@ -23,13 +22,12 @@ if (isset($_POST['updateStuff'])) {
  $_SESSION['clientDomain'] = $_POST['clientDomain'];
  $_SESSION['clientName'] = $_POST['clientName'];
  $_SESSION['clientLocation'] = $_POST['clientLocation'];
-
+ $uuid = getUUID();
  
  # Update the database and get the new clientId
- $qq = "INSERT into clientDetails (clientName, clientContactDetailsName, clientContactDetailsEmail, clientContactDetailsPhone, clientDomain, clientLocation, lastUpdated)
+ $qq = "INSERT into clientDetails (clientName, clientContactDetailsName, clientContactDetailsEmail, clientContactDetailsPhone, clientDomain, clientLocation, lastUpdated,uuid)
  VALUES
- ('" . $_SESSION['clientName'] . "','" . $_SESSION['clientContactDetailsName'] . "','" . $_SESSION['clientContactDetailsEmail'] . "','" . $_SESSION['clientContactDetailsPhone'] . "','" . $_SESSION['clientDomain'] . "','" . $_SESSION['clientLocation'] . "',NOW())";
-
+ ('" . $_SESSION['clientName'] . "','" . $_SESSION['clientContactDetailsName'] . "','" . $_SESSION['clientContactDetailsEmail'] . "','" . $_SESSION['clientContactDetailsPhone'] . "','" . $_SESSION['clientDomain'] . "','" . $_SESSION['clientLocation'] . "',NOW(),'$uuid')";
 mysql_query($qq) or die("Unable to insert client details" . mysql_error());
 
 $_SESSION['clientId'] = mysql_insert_id();
@@ -47,6 +45,9 @@ if (isset($_POST["clientId"])) {
 } else {
   $clientID=$_SESSION["clientId"];  
 }
+#phpinfo();
+#print_r($_SESSION);
+$categeryId = $_POST['categoryId'];
 
 foreach($_POST as $key => $value) {
   $pos = strpos($key , 'question');
@@ -61,16 +62,33 @@ foreach($_POST as $key => $value) {
  #   print "Num rows: $num_rows <br>";
  #   if (( $num_rows == "0" )) {
     ## Lazy but update the db each time as their aint many
+
     $qq = "INSERT into answers (questionId,answer,clientId) VALUES ('" . $qNumber . "','" . $value . "','" . $clientID . "')";
- #   } else {
+
+    
+    
+    #   } else {
  #   $qq = "UPDATE answers set questionId = '" . $qNumber . "', answer = '" . $value . "' WHERE clientId = '" . $clientID . "'";    
  #   }
  #   print "Query to run: $qq <br>";
-    mysql_query($qq) or die("Cannot insert the answers" . mysql_error());
-#    echo $qq . "<br>";
+
+ 
+ 
+ mysql_query($qq) or die("Cannot insert the answers" . mysql_error());
+
+ 
+ #    echo $qq . "<br>";
   }
-  
+    
 }
+
+## Add the comments in too  
+#$comments = $_POST['comments'];
+#$q1 = "INSERT into comments (clientId,categoryId,comments)
+#VALUES ('" . $clientID . "','" . $categeryId . "','" . $comments . "')"; 
+#echo $q1;
+#mysql_query($q1) or die("Cannot insert comments" . mysql_error());
+
 ## Bounce on to the next page
 header("location:/osma/index.php?page=$nextPage");
 

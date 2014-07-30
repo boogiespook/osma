@@ -1,15 +1,28 @@
+<?php
+## check if a uuid has been passed, if so get the details from the dbase
+if (isset($_REQUEST['uuid'])) {
+	$uuid = $_REQUEST['uuid'];
+	$qq = "select * from clientDetails where uuid = '" . $uuid . "'";
+	$results = mysql_query($qq) or die("Unable to run pageNumber query " . mysql_error());
+	$row = mysql_fetch_assoc($results);
+	$_SESSION['clientName'] = $row['clientName'];
+	$_SESSION['clientId'] = $row['clientId'];
+}
+?>
+
 
 <h2>Summary of Answers for <?php echo $_SESSION['clientName'] ?></h2>
 <br>
 <p>
 Thank you for completing the assessment.  Click on a question below to see your answers:</p>
-
+<?php
+?>
 
 <div id="accordion">
 <?php
-#phpinfo();
 #session_start();
 $qq = "SELECT * FROM questions as q, questionCatagories as qc, answers as a where a.questionId = q.questionNumber AND qc.categoryId = q.categoryId AND a.clientId = '" . $_SESSION['clientId'] . "'";
+#print $qq;
 $res = mysql_query($qq) or die ("Problem getting results: " . mysql_error());
 
 while ($row = mysql_fetch_assoc($res)) {

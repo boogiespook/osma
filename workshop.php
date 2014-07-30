@@ -1,3 +1,88 @@
+<?php
+## check if a uuid has been passed, if so get the details from the dbase
+if (isset($_REQUEST['uuid'])) {
+	$uuid = $_REQUEST['uuid'];
+	$qq = "select * from clientDetails where uuid = '" . $uuid . "'";
+	$results = mysql_query($qq) or die("Unable to run pageNumber query " . mysql_error());
+	$row = mysql_fetch_assoc($results);
+	$_SESSION['clientName'] = $row['clientName'];
+	$_SESSION['clientId'] = $row['clientId'];
+	$id = $_SESSION['clientId'];
+
+	## Get results for each catagory
+	
+$q1 = "SELECT * from questionCatagories";
+$res1 = mysql_query($q1) or die ("Problem getting q1: " . mysql_error());
+
+$qa = "SELECT clientName from clientDetails where clientId = $id";
+$rq = mysql_query($qa);
+$rr = mysql_fetch_assoc($rq);
+$clientName = $rr['clientName'];
+
+$totalMaturity = 0;
+$redFlagCategories = array();
+$_SESSION['redFlagCategories'] = array();
+while ($rowCat = mysql_fetch_assoc($res1)) {
+$q2 = "SELECT SUM(a.answer) as catagoryTotal, 
+SUM(q.maxScore) as catagoryMax,
+qc.categoryName,
+COUNT(q.questionId) as totalQuestions,
+qc.categoryId
+FROM questions as q, 
+questionCatagories as qc, 
+answers as a 
+WHERE 
+a.questionId = q.questionNumber 
+AND qc.categoryId = q.categoryId 
+AND q.categoryId = '" . $rowCat['categoryId'] . "'
+AND a.clientId = '" . $id . "'";
+
+$res = mysql_query($q2) or die ("Problem getting results for q2: " . mysql_error());
+
+while ($row = mysql_fetch_assoc($res)) {
+$catagoryTotal = $row['catagoryTotal'];
+$catagoryMax = $row['catagoryMax'];
+$categoryId = $row['categoryId'];
+$categoryName = $row['categoryName'];
+$totalQuestions = $row['totalQuestions'];
+$catAverage = round($catagoryTotal / $totalQuestions);
+$percentComplete = round(($catagoryTotal / $catagoryMax) * 100);
+$flag = ""; 
+
+if ($percentComplete < 26) {
+$maturityLevel = "1";
+$maturityLevelLabel = getMaturityLabel($maturityLevel);
+array_push($_SESSION['redFlagCategories'],$categoryId);
+array_push($redFlagCategories, $categoryId);
+$flag = "red_flag.png";
+} elseif ($percentComplete > 26 && $percentComplete < 51) 
+  {
+$maturityLevel = "2";
+$maturityLevelLabel = getMaturityLabel($maturityLevel);
+array_push($_SESSION['redFlagCategories'],$categoryId) ;
+array_push($redFlagCategories, $categoryId);
+$flag = "red_flag.png";
+    } elseif ($percentComplete > 50 && $percentComplete < 74)
+    {
+    $maturityLevel = "3";
+    $maturityLevelLabel = getMaturityLabel($maturityLevel);
+  } else {
+      $maturityLevel = "4";
+    $maturityLevelLabel = getMaturityLabel($maturityLevel);
+}
+$shortCategory = str_replace(" ","",$categoryName);
+$sc="$shortCategory" . "$maturityLevel";
+$totalMaturity = $maturityLevel + $totalMaturity;
+$desc = getMaturityLevel($shortCategory, $maturityLevel);
+
+}
+
+}
+	
+	
+}
+?>
+
 <h2>Proposed Workshop Sessions</h2>
 <br>
 <?php

@@ -1,6 +1,5 @@
 <h2>Client Details</h2>
 <?php
-#phpinfo();
 if (isset($_POST['Submit'])) { 
  $_SESSION['clientName'] = $_REQUEST['clientName'];
  $_SESSION['clientContactDetailsName'] = $_REQUEST['clientContactDetailsName'];
@@ -12,32 +11,7 @@ if (isset($_POST['Submit'])) {
  #$qq = "INSERT into clientDetails (clientName, clientContactDetailsName, #clientContactDetailsEmail, clientContactDetailsPhone, clientDomain)
  #VALUES
  #('" . $_SESSION['clientName'] . "','" . $_SESSION['clientContactDetailsName'] . "','" #. $_SESSION['clientContactDetailsEmail'] . "','" . #$_SESSION['clientContactDetailsPhone'] . "','" . $_SESSION['clientDomain'] . "')";
-#
-#mysql_query($qq);
-## echo "<br>To insert: $qq <br><br>";
-#
-#$_SESSION['clientID'] = mysql_insert_id();
-#
-# } else {
-# $_SESSION['clientName'] = "";
-# $_SESSION['clientContactDetailsName'] = "";
-# $_SESSION['clientContactDetailsEmail'] = "";
-# $_SESSION['clientContactDetailsPhone'] = "";
-# $_SESSION['clientDomain'] = ""; 
-# }
-#print_r($_SESSION);
  
-#if (isset($_POST['Clear'])) {
-#session_destroy();
-#session_start();
-#}
-#function updateIfSet($field) {
-#if (isset($_SESSION[$field])) {
-##  echo '<input type="text" name="' . $field . '" value="' . $_SESSION['$field'] . '"/>';
-#  } else {
- # echo '<input type="text" name="' . $field . '"/>';
-#
-#}
 ?>
 <table>
 <form method="POST" action="update.php?nextPage=1" id="clientDetails">

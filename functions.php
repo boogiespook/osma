@@ -2,41 +2,31 @@
 
 function connectDB() {
 ## LOCAL
-$db = mysql_connect('localhost','root','qwas1234');
+$db = mysql_connect('localhost','root','xxxxxxxx');
 	if (!$db) {
 	die("Unable to connect to database");
 }
 ## LOCAL
 if (!mysql_select_db('osma')) {
-		die("Unable to access osma database");
+		die("Unable to access dodgeball database");
 }
 
-## Chrisj
-#$db = mysql_connect('localhost','qxmyjohq_osma','qwas1234');
-#	if (!$db) {
-#	die("Unable to connect to database");
-#}
-#
-#
-#if (!mysql_select_db('qxmyjohq_')) {
-#		die("Unable to access database");
-#}
-
-
-
-## OPENSHIFT
-
-#define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
-#define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT')); 
-#define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-#define('DB_PASS',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-#define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
-##define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
-#
-#$dsn = 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port='.DB_PORT;
-#$dbh = new PDO($dsn, DB_USER, DB_PASS);
-
 }
+
+function getUUID(){
+    if (function_exists('com_create_guid')){
+        return com_create_guid();
+    }else{
+        mt_srand((double)microtime()*10000);//optional for php 4.2.0 and up.
+        $charid = strtoupper(md5(uniqid(rand(), true)));
+        $hyphen = chr(45);// "-"
+        $uuid = substr($charid, 0, 8).$hyphen
+            .substr($charid, 8, 4).$hyphen
+            .substr($charid,20,12);
+        return $uuid;
+    }
+}
+
 
 function getQuestions($category) {
 
@@ -70,8 +60,14 @@ $i++;
 
 echo "</select>";
 }
+
+## Add a comments field
+echo '<hr><label for="comments">Comments</label>
+<input size="60" type="text" name="comments">';
+
 echo '<input type="hidden" name="clientId" value="' . $_SESSION['clientId'] . '">';
-echo '<br><br><input class="button" type="submit" name="Submit" value="Next" />';
+echo '<input type="hidden" name="categoryId" value="' . $category . '">';
+echo '<br><br><input class="button" type="submit" name="Submit" value="Next" id="nextButton" />';
 
 echo "</form>";
 }
