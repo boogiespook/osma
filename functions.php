@@ -33,28 +33,28 @@ function getQuestions($category) {
 $qq = "select *, CONCAT(option1, option2, option3, option4, option5, option6) as all_options  from questionCatagories as qc, questions as q 
 WHERE q.categoryId = qc.categoryId 
 AND q.categoryId = '" . $category . "'";
+
 $nextPage = $category + 1;
 if (( $nextPage == "7.php")) {
-$nextPage = "summary";
+	$nextPage = "summary";
 }
 echo "<form action='update.php?nextPage=$nextPage' method='POST'>";
 $result = mysql_query($qq) or die("Unable to run category query " . mysql_error());
 
 while ($row = mysql_fetch_assoc($result)) {
-$question=$row['questionText'];
-$qNum=$row['questionNumber'];
-echo "<br><br>Q" . $qNum . ": $question<br>";
-
-$answerArray = array($row['option1'],$row['option2'],$row['option3'],$row['option4'],$row['option5'],$row['option6']);
-
-echo "<select name=question" . $row['questionNumber'] . '" class="styled">';
-$i=1;
-foreach ($answerArray as $answer) {
-if ($answer != "X") {
-$optionValue=substr($answer, -1);
-echo "<option value='" . $i . "'>$answer</option>";
-
-}
+	$question=$row['questionText'];
+	$qNum=$row['questionNumber'];
+	echo "<br><br>Q" . $qNum . ": $question<br>";
+	
+	$answerArray = array($row['option1'],$row['option2'],$row['option3'],$row['option4'],$row['option5'],$row['option6']);
+	
+	echo "<select name=question" . $row['questionNumber'] . '" class="styled">';
+	$i=1;
+	foreach ($answerArray as $answer) {
+		if ($answer != "X") {
+		$optionValue=substr($answer, -1);
+		echo "<option value='" . $i . "'>$answer</option>";
+		}
 $i++;
 }
 
@@ -64,7 +64,6 @@ echo "</select>";
 ## Add a comments field
 echo '<hr><label for="comments">Comments</label>
 <input size="60" type="text" name="comments">';
-
 echo '<input type="hidden" name="clientId" value="' . $_SESSION['clientId'] . '">';
 echo '<input type="hidden" name="categoryId" value="' . $category . '">';
 echo '<br><br><input class="button" type="submit" name="Submit" value="Next" id="nextButton" />';

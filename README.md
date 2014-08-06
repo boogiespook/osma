@@ -5,6 +5,12 @@ Open Source Maturity Assessment
 
 Still in Beta but made available for assessment and general "playing with"
 
+I've also included the dayabase structure.  Run:
+
+mysql -u root -p < osma.sql
+
+Don't forgot to change the mysql password in functions.php
+
 OSMA is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
