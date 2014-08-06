@@ -27,6 +27,16 @@ body {
 	color: #181B20;
 }
 
+#banner {
+      background: url(images/banner-background.png) repeat-x top left;
+      height: 80px;
+}
+
+.commentBox {
+ width: 300px;     
+}
+
+
 h1, h2, h3 {
 	margin: 0;
 	padding: 0;
@@ -542,7 +552,18 @@ img.aligncenter {
 }
 
 #startOver {
+	float: left;
+	margin-top: -50px;
+}
+
+#nextButton {
 	float: right;
+	margin-top: -50px;
+}
+
+#emailButton {
+	float: middle;
+	margin-top: -10px;
 }
 
 #accordion-resizer {

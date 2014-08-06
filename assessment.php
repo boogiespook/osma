@@ -1,6 +1,12 @@
-<h2>Assessment by Category</h2>
-
 <?php
+checkUUID();
+?>
+
+<h2>Assessment by Category</h2>
+<?php
+#printURL();
+$_SESSION['assessmentURL'] = printURL();
+print "This page is available at: <a href='" . $_SESSION['assessmentURL'] . "'>" . $_SESSION['assessmentURL'] . "</a><br>";
 
 ## Get results for each catagory
 $q1 = "SELECT * from questionCatagories";

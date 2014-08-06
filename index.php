@@ -106,12 +106,13 @@ connectDB();
 		</div>
 
 <?php
-if ($page != "clientDetails.php") {
+#if ($page != "clientDetails.php") {
+if (!preg_match("/clientDetails|emailResults/",$page)) {
 echo '<a id = "startOver" href="destroySession.php" class="button">Start Over</a>';
 #  if (($page != "clientDetails.php") || ($page != "workshop.php") || (!preg_match("/^[0-9]/",$page))) {
 }
 	
-if (!preg_match("/^[0-9]|clientDetails|workshop/",$page)) {
+if (!preg_match("/^[0-9]|clientDetails|emailResults/",$page)) {
     echo '<a href="index.php?page=' . $nextpage . '" class="button" id="nextButton">Next</a>';
   }   
 if (preg_match("/assessment/",$page)) {

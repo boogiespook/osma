@@ -11,13 +11,15 @@ $q2 = "SELECT SUM(a.answer) as catagoryTotal,
 SUM(q.maxScore) as catagoryMax,
 qc.categoryName,
 COUNT(q.questionId) as totalQuestions,
-qc.categoryId
+qc.categoryId, comments
 FROM questions as q, 
 questionCatagories as qc, 
-answers as a 
+answers as a,
+comments as com
 WHERE 
 a.questionId = q.questionNumber 
-AND qc.categoryId = q.categoryId 
+AND qc.categoryId = q.categoryId
+AND com.clientId = '" . $_SESSION['clientId'] . "'
 AND q.categoryId = '" . $rowCat['categoryId'] . "'
 AND a.clientId = '" . $_SESSION['clientId'] . "'";
 
@@ -29,6 +31,7 @@ $catagoryMax = $row['catagoryMax'];
 $categoryId = $row['categoryId'];
 $categoryName = $row['categoryName'];
 $totalQuestions = $row['totalQuestions'];
+$comments = $row['comments'];
 $catAverage = round($catagoryTotal / $totalQuestions,1);
 if ($catAverage > 4) {
 $catAverage = "4";
@@ -51,8 +54,11 @@ $newdata = array(
 'categoryId' => $categoryId,
 'categoryName' => rtrim($categoryName),
 'score' => $catAverage,
-'target' => $target
+'target' => $target,
+'comments' => $comments
 );
+
+#print_r($newdata);
 
 array_push($dataArray,$newdata);
 }
@@ -62,6 +68,8 @@ array_push($dataArray,$newdata);
 
 <html>
   <head>
+  <link href="table.css" rel="stylesheet" type="text/css" media="screen" />
+
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -93,8 +101,27 @@ array_push($dataArray,$newdata);
   
 <body>
 
-    <div id="chart_div" style="width: 100%; height: 600px;"></div>
+    <div id="chart_div" style="width: 90%; height: 400px;"></div>
+<?php
+## Add in the comments if there were any
+$qq = "select categoryName, comments from comments, questionCatagories WHERE questionCatagories.categoryId = comments.categoryId AND comments.clientId = '" . $_SESSION['clientId'] . "'";
+#print $qq;
+$res = mysql_query($qq) or die ("Cannot run query: " . mysql_error());
+if ($res) {
+print "<center><table id='rounded-corner'>
+<tr>
+<td colspan='2' align=center><b>Comments</b></td>
+</tr>";
+#print "<h3>Comments</h3>";
+while ($row = mysql_fetch_assoc($res)) {
+if (strlen($row['comments']) > 0) {
+print "<tr><td>" . $row['categoryName'] . "</td><td>" . $row['comments'] . "</td></tr>";
+}
+}
 
+print "</table>";
+}
+?>
 </body>
 </html>
     

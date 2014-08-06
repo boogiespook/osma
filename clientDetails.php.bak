@@ -40,13 +40,13 @@ if (isset($_POST['Submit'])) {
 #}
 ?>
 <table>
-<form method="POST" action="update.php?nextPage=1" id="clientDetails">
+<form method="POST" action="update.php?nextPage=1">
 <tr>
   <td>
     <label for="clientName">Client Name</label>
   </td>
   <td>
-    <input type="text" name="clientName" minlength="3" required>
+    <input type="text" name="clientName">
   </td>
 </tr>
 
@@ -55,7 +55,7 @@ if (isset($_POST['Submit'])) {
   <label for="clientContactDetailsName">Contact Name</label>
 </td>
 <td>                                 
-  <input type="text" name="clientContactDetailsName" required>
+  <input type="text" name="clientContactDetailsName">
 </td>
 </tr>
 
@@ -64,7 +64,7 @@ if (isset($_POST['Submit'])) {
     <label for="clientContactDetailsEmail">Contact Email</label>
   </td>
   <td>
-    <input type="email" name="clientContactDetailsEmail" required>
+    <input type="text" name="clientContactDetailsEmail">
   </td>                        
 </tr>
 
@@ -73,7 +73,7 @@ if (isset($_POST['Submit'])) {
     <label for="clientContactDetailsPhone">Contact Phone</label>
   </td>
   <td>                        
-    <input type="text" name="clientContactDetailsPhone" required>
+    <input type="text" name="clientContactDetailsPhone">
   </td>
 </tr>
 
@@ -123,12 +123,6 @@ if (isset($_POST['Submit'])) {
 				  </td>
 				  </tr>
 
-                                   <tr>
-				  <td> <input type="radio" class="styled" name="clientDomain" value="Other" id="clientDomain" />
-                                        <label for="other">Other</label>
-				  </td>
-				  </tr>
-				  
 				  
                          </fieldset>
 </table>                         

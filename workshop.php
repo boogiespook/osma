@@ -1,23 +1,18 @@
 <?php
 ## check if a uuid has been passed, if so get the details from the dbase
-if (isset($_REQUEST['uuid'])) {
-	$uuid = $_REQUEST['uuid'];
-	$qq = "select * from clientDetails where uuid = '" . $uuid . "'";
-	$results = mysql_query($qq) or die("Unable to run pageNumber query " . mysql_error());
-	$row = mysql_fetch_assoc($results);
-	$_SESSION['clientName'] = $row['clientName'];
-	$_SESSION['clientId'] = $row['clientId'];
-	$id = $_SESSION['clientId'];
+checkUUID();
 
-	## Get results for each catagory
+## Get results for each catagory
 	
 $q1 = "SELECT * from questionCatagories";
 $res1 = mysql_query($q1) or die ("Problem getting q1: " . mysql_error());
-
-$qa = "SELECT clientName from clientDetails where clientId = $id";
+#print_r($_SESSION);
+$id = $_SESSION['clientId'];
+$qa = "SELECT clientName,uuid from clientDetails where clientId = '" . $id . "'";
 $rq = mysql_query($qa);
 $rr = mysql_fetch_assoc($rq);
 $clientName = $rr['clientName'];
+$uuid = $rr['uuid'];
 
 $totalMaturity = 0;
 $redFlagCategories = array();
@@ -76,17 +71,17 @@ $totalMaturity = $maturityLevel + $totalMaturity;
 $desc = getMaturityLevel($shortCategory, $maturityLevel);
 
 }
-
-}
-	
-	
 }
 ?>
 
 <h2>Proposed Workshop Sessions</h2>
+<?php
+$_SESSION['workshopURL'] = printURL();
+print "This page is available at: <a href='" . $_SESSION['workshopURL'] . "'>" . $_SESSION['workshopURL'] . "</a><br>";
+?>
+
 <br>
 <?php
-#print_r($_SESSION);
 
 date_default_timezone_set('Europe/London');
 $totalSessions = count($_SESSION['redFlagCategories']);
@@ -105,15 +100,18 @@ if ($totalSessions < 4 ) {
 
 <p>Red Het would recommend the following <?php echo $duration . " day "; ?> workshop to assist <?php echo $_SESSION['clientName']; ?> in increasing their maturity level from Level 
 <?php 
-echo $_SESSION['maturityLevel']; 
-echo " (<i>" . getMaturityLabel($_SESSION['maturityLevel']) . "</i>) ";
+echo $maturityLevel; 
+echo " (<i>" . getMaturityLabel($maturityLevel) . "</i>) ";
 ?>
 to Level 
-<?php echo $_SESSION['maturityLevel'] + 1; 
-echo " (<i>" . getMaturityLabel($_SESSION['maturityLevel'] + 1) . ")</i>";
+<?php echo $maturityLevel + 1; 
+echo " (<i>" . getMaturityLabel($maturityLevel + 1) . ")</i>";
 ?>
 </p>
+<?php
+printURL();
 
+?>
 <table id="rounded-corner" summary="Workshop">
     <thead>
         <tr>
@@ -212,6 +210,9 @@ print '
 
 $id = $_SESSION['clientId'];
 exec('./createAgenda.sh ' . $id . ' ' . str_replace(" ","",$_SESSION['clientName']));
+
+echo '<a id=emailButton href="index.php?page=emailResults.php" class="button">Email Results</a>';
+
 ?>
 
 

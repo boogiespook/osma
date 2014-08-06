@@ -20,7 +20,9 @@ Thank you for completing the assessment.  Click on a question below to see your 
 
 <div id="accordion">
 <?php
+#session_start();
 $qq = "SELECT * FROM questions as q, questionCatagories as qc, answers as a where a.questionId = q.questionNumber AND qc.categoryId = q.categoryId AND a.clientId = '" . $_SESSION['clientId'] . "'";
+#print $qq;
 $res = mysql_query($qq) or die ("Problem getting results: " . mysql_error());
 
 while ($row = mysql_fetch_assoc($res)) {
@@ -39,13 +41,11 @@ $res2 = mysql_query($qq2) or die ("Cannot get results: " . mysql_error());
 $row2 = mysql_fetch_array($res2);
 $ans = $row2[0];
 $max = $row2[1];
-
 if ($totalScore < 2) {
-	$col = "#FF0000";
-	} else {
-	$col = "#00FF00";
+$col = "#FF0000";
+} else {
+$col = "#00FF00";
 }
-
 print "<div><font color=$col><b>$ans </b></font> &nbsp ($totalScore out of " . $max . ")</div>";
 
 }
