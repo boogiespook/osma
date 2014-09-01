@@ -139,24 +139,33 @@ if (isset($_POST['Submit'])) {
 <table>
                                 <legend>Client Location</legend>
                                 <tr>
-				  <td><input type="radio" class="styled" name="clientLocation" value="EMEA" id="clientLocation" />
+										<td><input type="radio" class="styled" name="clientLocation" value="EMEA" id="clientLocation" />
                                         <label for="EMEA">Europe</label>
-                                  </td>
+										</td>
                                 </tr>
                                 
                                 <tr>
-				  <td> <input type="radio" class="styled" name="clientLocation" value="APAC" id="clientLocation" />
+										<td> <input type="radio" class="styled" name="clientLocation" value="APAC" id="clientLocation" />
                                         <label for="APAC">Asia & Pacific</label>
-                        
-				</td>
-                                </tr>                                        <tr>
-				  <td><input type="radio" class="styled" name="clientLocation" value="LATAM" id="clientLocation" />
-                                        <label for="LATAM">Latin America</label>
-				</td>
-                                </tr>    
-                                
+										</td>
+                                </tr>                                        
                                 <tr>
-				  <td><input type="radio" class="styled" name="clientLocation" value="NA" id="clientLocation" />
+										<td><input type="radio" class="styled" name="clientLocation" value="LATAM" id="clientLocation" />
+                                        <label for="LATAM">Latin America</label>
+										</td>
+                                </tr>    
+                                <tr>
+										<td><input type="radio" class="styled" name="clientLocation" value="MEAST" id="clientLocation" />
+                                        <label for="LATAM">Middle East</label>
+										</td>
+                                </tr>    
+                                <tr>
+										<td><input type="radio" class="styled" name="clientLocation" value="AFRICA" id="clientLocation" />
+                                        <label for="LATAM">Africa</label>
+										</td>
+                                </tr>                                    
+                                <tr>
+										<td><input type="radio" class="styled" name="clientLocation" value="NA" id="clientLocation" />
                                         <label for="NA">North America</label>
                                   </td>
                                  </tr>
