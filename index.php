@@ -40,6 +40,13 @@ $.validator.setDefaults({
 });
 </script>
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
+
 </head>
 <body>
 <?php
@@ -106,15 +113,16 @@ connectDB();
 		</div>
 
 <?php
-#if ($page != "clientDetails.php") {
-if (!preg_match("/clientDetails|emailResults/",$page)) {
+if (!preg_match("/clientDetails/",$page)) {
 echo '<a id = "startOver" href="destroySession.php" class="button">Start Over</a>';
-#  if (($page != "clientDetails.php") || ($page != "workshop.php") || (!preg_match("/^[0-9]/",$page))) {
 }
 	
 if (!preg_match("/^[0-9]|clientDetails|emailResults/",$page)) {
     echo '<a href="index.php?page=' . $nextpage . '" class="button" id="nextButton">Next</a>';
-  }   
+	}   
+if (!preg_match("/clientDetails|emailResults|welcome/",$page)) {
+    echo '<a href="' . htmlspecialchars($_SERVER['HTTP_REFERER']) . '" class="button" id="backButton">Back</a>';
+	}
 if (preg_match("/assessment/",$page)) {
   echo '<a class="button" target=_blank href="graph1.php">Graph by Category</a>';
   echo '<a class="button" target=_blank href="graph2.php">Overall Graph</a>';

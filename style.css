@@ -561,6 +561,13 @@ img.aligncenter {
 	margin-top: -50px;
 }
 
+#backButton {
+	float: left;
+	margin-top: -50px;
+	margin-left: 150px;
+}
+
+
 #emailButton {
 	float: middle;
 	margin-top: -10px;

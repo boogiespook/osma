@@ -2,7 +2,7 @@
 
 function connectDB() {
 ## LOCAL
-$db = mysql_connect('localhost','root','qwas1234');
+$db = mysql_connect('localhost','root','password');
 	if (!$db) {
 	die("Unable to connect to database");
 	}

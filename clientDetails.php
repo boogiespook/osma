@@ -8,6 +8,7 @@ if (isset($_POST['Submit'])) {
  $_SESSION['clientContactDetailsPhone'] = $_REQUEST['clientContactDetailsPhone'];
  $_SESSION['clientDomain'] = $_REQUEST['clientDomain'];
 }
+#print_r($_SESSION);
  ## Update the database and get the new clientId
  #$qq = "INSERT into clientDetails (clientName, clientContactDetailsName, #clientContactDetailsEmail, clientContactDetailsPhone, clientDomain)
  #VALUES
@@ -46,7 +47,7 @@ if (isset($_POST['Submit'])) {
     <label for="clientName">Client Name</label>
   </td>
   <td>
-    <input type="text" name="clientName" minlength="3" required>
+    <input type="text" name="clientName" minlength="3" <?php if (isset($_SESSION['clientName'])) { echo " value='" .  $_SESSION['clientName'] . "'"; } ?> required>
   </td>
 </tr>
 
@@ -55,7 +56,7 @@ if (isset($_POST['Submit'])) {
   <label for="clientContactDetailsName">Contact Name</label>
 </td>
 <td>                                 
-  <input type="text" name="clientContactDetailsName" required>
+  <input type="text" name="clientContactDetailsName" <?php if (isset($_SESSION['clientContactDetailsName'])) { echo " value='" .  $_SESSION['clientContactDetailsName'] . "'"; } ?> required>
 </td>
 </tr>
 
@@ -64,7 +65,7 @@ if (isset($_POST['Submit'])) {
     <label for="clientContactDetailsEmail">Contact Email</label>
   </td>
   <td>
-    <input type="email" name="clientContactDetailsEmail" required>
+    <input type="email" name="clientContactDetailsEmail" <?php if (isset($_SESSION['clientContactDetailsEmail'])) { echo " value='" .  $_SESSION['clientContactDetailsEmail'] . "'"; } ?> required>
   </td>                        
 </tr>
 
@@ -73,7 +74,7 @@ if (isset($_POST['Submit'])) {
     <label for="clientContactDetailsPhone">Contact Phone</label>
   </td>
   <td>                        
-    <input type="text" name="clientContactDetailsPhone" required>
+    <input type="text" name="clientContactDetailsPhone" <?php if (isset($_SESSION['clientContactDetailsPhone'])) { echo " value='" .  $_SESSION['clientContactDetailsPhone'] . "'"; } ?> required>
   </td>
 </tr>
 
