@@ -98,7 +98,7 @@ if ($totalSessions < 4 ) {
 }
 ?>
 
-<p>Red Het would recommend the following <?php echo $duration . " day "; ?> workshop to assist <?php echo $_SESSION['clientName']; ?> in increasing their maturity level from Level 
+<p>We would recommend the following <?php echo $duration . " day "; ?> workshop to assist <?php echo $_SESSION['clientName']; ?> in increasing their maturity level from Level 
 <?php 
 echo $maturityLevel; 
 echo " (<i>" . getMaturityLabel($maturityLevel) . "</i>) ";
@@ -211,7 +211,7 @@ print '
 $id = $_SESSION['clientId'];
 exec('./createAgenda.sh ' . $id . ' ' . str_replace(" ","",$_SESSION['clientName']));
 
-echo '<a id=emailButton href="index.php?page=emailResults.php" class="button">Email Results</a>';
+#echo '<a id=emailButton href="index.php?page=emailResults.php" class="button">Email Results</a>';
 
 ?>
 

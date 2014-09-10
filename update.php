@@ -7,7 +7,7 @@ connectDB();
 #phpinfo();
 
 if (($nextPage == "intro.php") || ($nextPage == "clientDetails.php")) {
-header("location:/osma/index.php?page=$nextPage");
+header("location:index.php?page=$nextPage");
 } 
 
 ## If the referrer was the clientDetails page then update the dbase
@@ -32,7 +32,7 @@ mysql_query($qq) or die("Unable to insert client details" . mysql_error());
 
 $_SESSION['clientId'] = mysql_insert_id();
 }
-header("location:/osma/index.php?page=1.php");
+header("location:index.php?page=1.php");
 
 }
 
@@ -90,7 +90,7 @@ foreach($_POST as $key => $value) {
 #mysql_query($q1) or die("Cannot insert comments" . mysql_error());
 
 ## Bounce on to the next page
-header("location:/osma/index.php?page=$nextPage");
+header("location:index.php?page=$nextPage");
 
 }
 

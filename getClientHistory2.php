@@ -17,7 +17,7 @@
 <div id="wrapper">
                 <div id="header">
                         <div id="logo">
-                                        <img src="images/red-hat-logo.png" height="60px" width="60px">
+                                        <img src="images/osma.png" height="60px" width="60px">
                                 <?php if (isset($_SESSION['clientName']) && $_SESSION['clientName'] != "") {
                                 echo "<h1><a href=''>Open Source Maturity Assessment (" . $_SESSION['clientName'] . ")</a></h1>
 ";

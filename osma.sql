@@ -1,8 +1,8 @@
--- MySQL dump 10.14  Distrib 5.5.36-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.1.73, for redhat-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: osma
 -- ------------------------------------------------------
--- Server version	5.5.36-MariaDB
+-- Server version	5.1.73
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -51,7 +51,7 @@ CREATE TABLE `answers` (
   `clientId` int(4) NOT NULL,
   `answer` int(11) NOT NULL,
   PRIMARY KEY (`answerId`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `answers` (
 
 LOCK TABLES `answers` WRITE;
 /*!40000 ALTER TABLE `answers` DISABLE KEYS */;
-INSERT INTO `answers` VALUES (1,'1',1,1),(2,'2',1,1),(3,'3',1,1),(4,'4',1,1),(5,'5',1,1),(6,'6',1,1),(7,'7',1,1),(8,'8',1,1),(9,'9',1,1),(10,'10',1,1),(11,'11',1,1),(12,'12',1,1),(13,'13',1,1),(14,'14',1,1),(15,'15',1,1),(16,'16',1,1),(17,'17',1,1),(18,'18',1,1),(19,'19',1,1),(20,'20',1,1),(21,'21',1,1),(22,'22',1,1),(23,'23',1,1),(24,'24',1,1),(25,'1',2,1),(26,'2',2,1),(27,'3',2,1),(28,'4',2,1),(29,'5',2,1),(30,'6',2,1),(31,'7',2,1),(32,'8',2,1),(33,'9',2,1),(34,'10',2,1),(35,'11',2,1),(36,'12',2,5),(37,'13',2,5),(38,'14',2,3),(39,'15',2,3),(40,'16',2,4),(41,'17',2,3),(42,'18',2,2),(43,'19',2,2),(44,'20',2,4),(45,'21',2,3),(46,'22',2,1),(47,'23',2,4),(48,'24',2,1),(49,'1',7,1),(50,'2',7,3),(51,'3',7,5),(52,'4',7,4),(53,'5',7,3),(54,'6',7,1),(55,'7',7,2),(56,'8',7,1),(57,'9',7,4),(58,'10',7,4),(59,'11',7,1),(60,'12',7,4),(61,'13',7,3),(62,'14',7,2),(63,'12',7,1),(64,'13',7,4),(65,'14',7,1),(66,'15',7,1),(67,'16',7,1),(68,'17',7,2),(69,'18',7,1),(70,'19',7,1),(71,'20',7,1),(72,'21',7,3),(73,'22',7,1),(74,'23',7,1),(75,'24',7,3);
+INSERT INTO `answers` VALUES (1,'1',1,1),(2,'2',1,1),(3,'3',1,1),(4,'4',1,1),(5,'5',1,1),(6,'6',1,1),(7,'7',1,1),(8,'8',1,1),(9,'9',1,1),(10,'10',1,1),(11,'11',1,1),(12,'12',1,1),(13,'13',1,1),(14,'14',1,1),(15,'15',1,1),(16,'16',1,1),(17,'17',1,1),(18,'18',1,1),(19,'19',1,1),(20,'20',1,1),(21,'21',1,1),(22,'22',1,1),(23,'23',1,1),(24,'24',1,1),(25,'1',2,1),(26,'2',2,1),(27,'3',2,1),(28,'4',2,1),(29,'5',2,1),(30,'6',2,1),(31,'7',2,1),(32,'8',2,1),(33,'9',2,1),(34,'10',2,1),(35,'11',2,1),(36,'12',2,5),(37,'13',2,5),(38,'14',2,3),(39,'15',2,3),(40,'16',2,4),(41,'17',2,3),(42,'18',2,2),(43,'19',2,2),(44,'20',2,4),(45,'21',2,3),(46,'22',2,1),(47,'23',2,4),(48,'24',2,1),(49,'1',7,1),(50,'2',7,3),(51,'3',7,5),(52,'4',7,4),(53,'5',7,3),(54,'6',7,1),(55,'7',7,2),(56,'8',7,1),(57,'9',7,4),(58,'10',7,4),(59,'11',7,1),(60,'12',7,4),(61,'13',7,3),(62,'14',7,2),(63,'12',7,1),(64,'13',7,4),(65,'14',7,1),(66,'15',7,1),(67,'16',7,1),(68,'17',7,2),(69,'18',7,1),(70,'19',7,1),(71,'20',7,1),(72,'21',7,3),(73,'22',7,1),(74,'23',7,1),(75,'24',7,3),(76,'1',8,2),(77,'2',8,2),(78,'3',8,5),(79,'4',8,4),(80,'5',8,4),(81,'6',8,1),(82,'7',8,1),(83,'8',8,1),(84,'9',8,1),(85,'10',8,1),(86,'11',8,1),(87,'12',8,1),(88,'13',8,1),(89,'14',8,2),(90,'15',8,1),(91,'16',8,1),(92,'17',8,1),(93,'18',8,1),(94,'19',8,1),(95,'20',8,1),(96,'21',8,1),(97,'22',8,1),(98,'23',8,1),(99,'24',8,1);
 /*!40000 ALTER TABLE `answers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,7 +82,7 @@ CREATE TABLE `clientDetails` (
   `lastUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `uuid` varchar(50) NOT NULL,
   PRIMARY KEY (`clientId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `clientDetails` (
 
 LOCK TABLES `clientDetails` WRITE;
 /*!40000 ALTER TABLE `clientDetails` DISABLE KEYS */;
-INSERT INTO `clientDetails` VALUES (1,'ChrisJ','Retail','Chris Jenkins','asd@asd.com','123123','EMEA','2014-08-06 14:56:44','3E7DBE84-94A1-C24E056A3705'),(2,'Test1','Finance','Fred Test','freds@asd.com','123123123','AFRICA','2014-09-01 17:05:59','508B9F5D-CB28-A5817DC94284'),(3,'Test2','Finance','Fred Test','freds@asd.com','123123123','APAC','2014-09-01 17:05:59','508B9F5D-CB28-A5817DC94285'),(4,'Test3','Finance','Fred Test','freds@asd.com','123123123','EMEA','2014-09-01 17:05:59','508B9F5D-CB28-A5817DC94289'),(7,'MyNewCorp','Media','Chris Jenkins','casd@wqe.com','9382842','AFRICA','2014-09-02 07:40:34','48AAC957-EA0E-1B58AFEBB4D5');
+INSERT INTO `clientDetails` VALUES (1,'ChrisJ','Retail','Chris Jenkins','asd@asd.com','123123','EMEA','2014-08-06 14:56:44','3E7DBE84-94A1-C24E056A3705'),(2,'Test1','Finance','Fred Test','freds@asd.com','123123123','AFRICA','2014-09-01 17:05:59','508B9F5D-CB28-A5817DC94284'),(3,'Test2','Finance','Fred Test','freds@asd.com','123123123','APAC','2014-09-01 17:05:59','508B9F5D-CB28-A5817DC94285'),(4,'Test3','Finance','Fred Test','freds@asd.com','123123123','EMEA','2014-09-01 17:05:59','508B9F5D-CB28-A5817DC94289'),(7,'MyNewCorp','Media','Chris Jenkins','casd@wqe.com','9382842','AFRICA','2014-09-02 07:40:34','48AAC957-EA0E-1B58AFEBB4D5'),(8,'ChrisJTest1','Media','Chris Jenkins','asd@asd.com','123123','EMEA','2014-09-09 09:38:59','7201FE4D-FFD7-7C132630DF10');
 /*!40000 ALTER TABLE `clientDetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-02  9:17:08
+-- Dump completed on 2014-09-10  4:48:53

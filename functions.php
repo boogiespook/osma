@@ -8,7 +8,7 @@ $db = mysql_connect('localhost','root','password');
 	}
 ## LOCAL
 if (!mysql_select_db('osma')) {
-		die("Unable to access dodgeball database");
+		die("Unable to access osma database");
 	}
 }
 

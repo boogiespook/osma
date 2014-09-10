@@ -74,7 +74,7 @@ connectDB();
 	<div id="page">
 		<div id="page-bgtop">
 		<div id="redhatLogo">
-		<img src="images/red-hat-logo.png" height="60px" width="60px">
+		<img src="images/osma.png" height="60px" width="60px">
 		</div>
 
 		<div id="progressBar"><div></div></div>	
@@ -117,15 +117,15 @@ if (!preg_match("/clientDetails/",$page)) {
 echo '<a id = "startOver" href="destroySession.php" class="button">Start Over</a>';
 }
 	
-if (!preg_match("/^[0-9]|clientDetails|emailResults/",$page)) {
+if (!preg_match("/^[0-9]|clientDetails|emailResults|workshop/",$page)) {
     echo '<a href="index.php?page=' . $nextpage . '" class="button" id="nextButton">Next</a>';
 	}   
 if (!preg_match("/clientDetails|emailResults|welcome/",$page)) {
     echo '<a href="' . htmlspecialchars($_SERVER['HTTP_REFERER']) . '" class="button" id="backButton">Back</a>';
 	}
 if (preg_match("/assessment/",$page)) {
-  echo '<a class="button" target=_blank href="graph1.php">Graph by Category</a>';
-  echo '<a class="button" target=_blank href="graph2.php">Overall Graph</a>';
+#  echo '<a class="button" target=_blank href="graph1.php">Graph by Category</a>';
+#  echo '<a class="button" target=_blank href="graph2.php">Overall Graph</a>';
 }
 ?>
 

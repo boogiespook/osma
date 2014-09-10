@@ -130,7 +130,7 @@ $endTime = $startTime + ($sessionLength * 60);
 }
 
 print '<tr>
-   <td>' . date('H:i',$startTime)  . '</td><td>' . date('H:i',$endTime) . '</td><td>' . $sessionName . "<br><ul><li>" . $sessionDetails .'</li><li><b>Red Hat Participants:</b> ' . $redHatters . '</li></ul></td>
+   <td>' . date('H:i',$startTime)  . '</td><td>' . date('H:i',$endTime) . '</td><td>' . $sessionName . "<br><ul><li>" . $sessionDetails .'</li><li><b>Participants:</b> ' . $redHatters . '</li></ul></td>
 </tr>';
 
 $startTime = $endTime;
@@ -168,7 +168,7 @@ $endTime = $startTime + ($sessionLength * 60);
 }
 
 print '<tr>
-   <td>' . date('H:i',$startTime)  . '</td><td>' . date('H:i',$endTime) . '</td><td>' . $sessionName . "<br><ul><li>" . $sessionDetails .'</li><li><b>Red Hat Participants:</b> ' . $redHatters . '</li></ul></td>
+   <td>' . date('H:i',$startTime)  . '</td><td>' . date('H:i',$endTime) . '</td><td>' . $sessionName . "<br><ul><li>" . $sessionDetails .'</li><li><b>Participants:</b> ' . $redHatters . '</li></ul></td>
 </tr>';
 
 $startTime = $endTime;
