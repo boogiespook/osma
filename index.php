@@ -124,8 +124,8 @@ if (!preg_match("/clientDetails|emailResults|welcome/",$page)) {
     echo '<a href="' . htmlspecialchars($_SERVER['HTTP_REFERER']) . '" class="button" id="backButton">Back</a>';
 	}
 if (preg_match("/assessment/",$page)) {
-#  echo '<a class="button" target=_blank href="graph1.php">Graph by Category</a>';
-#  echo '<a class="button" target=_blank href="graph2.php">Overall Graph</a>';
+ echo '<a class="button" target=_blank href="graph1.php">Graph by Category</a>';
+ echo '<a class="button" target=_blank href="graph2.php">Overall Graph</a>';
 }
 ?>
 
