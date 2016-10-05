@@ -136,7 +136,7 @@ progressBar(<?php echo $progress ?>, $('#progressBar'));
 </script>
 </div>
 <div id="footer">
-	<p>Copyright (c) 2014 Chris Jenkins. </p>
+	<p>Copyright (c) 2016 Chris Jenkins. </p>
 </div>
 <!-- end #footer -->
 </body>
