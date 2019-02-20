@@ -1,143 +1,84 @@
 <?php
-if (!isset($_SESSION)) { 
 session_start();
-} 
-#else {
-#print_r($_SESSION); 
-#}
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Open Source Maturity Assessment</title>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-<script type="text/javascript" src="js/progressbar.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script src="js/jquery.validate.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/custom-form-elements.js"></script>
+	<title>Open Source Maturity Assessment</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
+	<link rel="stylesheet" type="text/css" href="http://overpass-30e2.kxcdn.com/overpass.css"/>
 
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
-<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="table.css" rel="stylesheet" type="text/css" media="screen" />
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<!--	<script src="js/jquery-1.10.2.js"></script>-->
+<!--- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+<link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
- <script type="text/javascript">
-$(function() {
-  $( "#accordion" ).accordion({
-  heightStyle: "content"
-  });
-});
-</script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
 
-<script>
-$.validator.setDefaults({
-	submitHandler: function() { alert("submitted!"); }
-});
-</script>
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-
-<script>
-function goBack() {
-    window.history.back()
-}
-</script>
+    <script>
+  $( function() {
+    $( "input" ).checkboxradio();
+  } );
+  </script>
 
 </head>
 <body>
-<?php
-include("functions.php");
-connectDB();
-#print_r($_SESSION);
-
-?>
-
-<div id="wrapper">
-	<div id="header-wrapper">
-		<div id="header">
-			<div id="logo">
-				<?php if (isset($_SESSION['clientName']) && $_SESSION['clientName'] != "") {
-				echo "<h1><a href=''>Open Source Maturity Assessment (" . $_SESSION['clientName'] . ")</a></h1>";
-				} else {
-				echo '<h1><a href="#">Open Source Maturity Assessment</a></h1>';
-				}
-				?>
-			</div>
+<?php # include_once("analyticstracking.php") ?>
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.php"><img src="images/innovate.png">  Open Source Maturity Assessment</a>
 		</div>
-	
+		<div class="collapse navbar-collapse" id="navbar1">
+			<ul class="nav navbar-nav navbar-right">
+				<?php if (isset($_SESSION['usr_id'])) { ?>
+				<li><a href="assess.php">Run Assessment</a></li>
+				<li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
+				<li><a href="logout.php">Log Out</a></li>
+				<li><a target="_blank" href="https://github.com/boogiespook/osma2">Github</a></li>
+				<?php } else { ?>
+				<li><a href="register.php">Register</a></li>
+				<li><a href="login.php">Login</a></li>
+				<li><a target="_blank" href="https://github.com/boogiespook/osma2">Github</a></li>
+				<?php } ?>
+
+			</ul>
+		</div>
 	</div>
-	<!-- end #header -->
-	<div id="page">
-		<div id="page-bgtop">
-		<div id="redhatLogo">
-		<img src="images/osma.png" height="60px" width="60px">
-		</div>
-
-		<div id="progressBar"><div></div></div>	
-			<div id="page-bgbtm">
-				<div id="content">
-					<div class="post">
-
-	<?php  
-	if (!isset($_REQUEST['page'])) {
-	  $page="welcome.html";
-	  $nextpage="intro.html";
-	  $prevpage="";
-	  $progress=10;
-	} else {
-	  ## Look up prev/next pages in Dbase
-	  $qq = "SELECT * from pageNumbers where page = '" . $_REQUEST['page'] . "'";
-	  $results = mysql_query($qq) or die("Unable to run pageNumber query " . mysql_error());
-	  $row = mysql_fetch_assoc($results);
-	  $progress = $row['progress'];
-	  $page = $row['page'];
-	  $prevpage = $row['prevPage'];
-	  $nextpage = $row['nextPage'];
-	  if (!$nextpage) {
-	      $nextpage = $page;
-	      }
-	}
-	include($page);
-	?>				
-					
-					</div>
-					<div style="clear: both;">&nbsp;</div>
-				</div>
-				<!-- end #content -->
-				<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
+</nav>
 
 <?php
-if (!preg_match("/clientDetails/",$page)) {
-echo '<a id = "startOver" href="destroySession.php" class="button">Start Over</a>';
-}
-	
-if (!preg_match("/^[0-9]|clientDetails|emailResults|workshop/",$page)) {
-    echo '<a href="index.php?page=' . $nextpage . '" class="button" id="nextButton">Next</a>';
-	}   
-if (!preg_match("/clientDetails|emailResults|welcome/",$page)) {
-    echo '<a href="' . htmlspecialchars($_SERVER['HTTP_REFERER']) . '" class="button" id="backButton">Back</a>';
-	}
-if (preg_match("/assessment/",$page)) {
- echo '<a class="button" target=_blank href="graph1.php">Graph by Category</a>';
- echo '<a class="button" target=_blank href="graph2.php">Overall Graph</a>';
-}
+if(isset($_SESSION['usr_id'])) {
+include 'dbconnect.php';
+$userId = $_SESSION['usr_id'];
+
+?>
+    <div class="container">
+
+      </div>
+
+
+    </div> <!-- /container -->
+<?php    }
+####  End of Logged on bit ######
 ?>
 
-</div>
-	<!-- end #page --> 
-<script>
-progressBar(<?php echo $progress ?>, $('#progressBar'));
-</script>
-</div>
-<div id="footer">
-	<p>Copyright (c) 2016 Chris Jenkins. </p>
-</div>
-<!-- end #footer -->
+
+
 </body>
 </html>

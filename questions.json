@@ -1,0 +1,446 @@
+{
+	    "Business Goals": {
+      "1": {
+          "question" : "X",
+          "description": "XXX",
+	        "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"    
+            }
+      },
+      "2": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+          }
+      },
+      "3": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+      },
+      "4": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+          },
+      "5": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+          },
+      "6": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"
+	          }
+      }
+	    },
+    "General Knowledge of Open Source": {
+      "1": {
+          "question" : "To what extent is Open Source Software being adopted within your organization today?",
+          "description": "XXX",
+	        "options": {
+      			"1" : "Don't Know",    
+      			"2" : "< 10% of New Projects",    
+      			"3" : "10% - 25% of New Projects",    
+      			"4" : "25% - 50% of New Projects",    
+      			"5" : "> 50% of New Projects",    
+      			"6" : "X"    
+            }
+      },
+      "2": {
+          "question" : "Which term best describes the highest organizational level of Open Source Software adoption within your organization?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "Individual Adoption",    
+      			"3" : "Small-Team Adoption",    
+      			"4" : "Large-Team Adoption",    
+      			"5" : "Institutional Adoption",    
+      			"6" : "X"   
+          }
+      },
+      "3": {
+          "question" : "Which term best describes how Open Source Software is adopted within your organization?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "Secretive",    
+      			"3" : "Under-The-Radar",    
+      			"4" : "Ad-hoc",    
+      			"5" : "Management Endorsed",    
+      			"6" : "Strategically Focused"
+	          }
+      },
+      "4": {
+          "question" : "What level of support do you have for any formal corporate policies regarding the use and adoption of Open Source Software?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+	          	"2" : "Not Supportive",    
+      			"3" : "Neutral",    
+      			"4" : "Encouraged For New Projects",    
+      			"5" : "Encouraged But Not Required",    
+      			"6" : "Required For New Projects"    
+	          }
+          },
+      "5": {
+          "question" : "Over the next twelve months what do you predict will happen regarding Open Source Software adoption within your organization compared to the last twelve months?",
+          "description": "XXX",
+	          "options": {
+					"1" : "Don't Know",    
+      			"2" : "Decrease Significantly",    
+      			"3" : "Decrease Somewhat",    
+      			"4" : "Stay The Same",    
+      			"5" : "Increase Somewhat",    
+      			"6" : "Increase Significantly"    
+	          }
+          },
+      "6": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXX"
+	          }
+      }
+    },
+    "Development Standards and Tools": {
+      "1": {
+          "question" : "To what extent are agile / iterative development methodologies being adopted within your organization today?",
+          "description": "XXX",
+	        "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "< 10% of New Projects",    
+      			"3" : "10% - 25% of New Projects",    
+      			"4" : "25% - 50% of New Projects",    
+      			"5" : "> 50% of New Projects",    
+      			"6" : "X"    
+            }
+      },
+      "2": {
+          "question" : "To what extent are formal peer reviews of source code implemented within your organization today?",
+          "description": "XXX",
+	        "options": {
+	          	"1" : "Don't Know",    
+	          	"2" : "< 10% of New Projects",    
+      			"3" : "10% - 25% of New Projects",    
+      			"4" : "25% - 50% of New Projects",    
+      			"5" : "> 50% of New Projects",    
+      			"6" : "X"    
+            }
+      },
+      "3": {
+          "question" : "Which term best describes the highest organizational level of Open Source development tools adoption within your organization?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "Individual Adoption",    
+      			"3" : "Small-Team Adoption",    
+      			"4" : "Large-Team Adoption",    
+      			"5" : "Institutional Adoption",    
+      			"6" : "X"   
+          }
+      },
+      "4": {
+          "question" : "Which term(s) best describes how Open Source development tools are adopted within your organization?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+	          	"2" : "Secretive",    
+      			"3" : "Under-The-Radar",    
+      			"4" : "Ad-hoc",    
+      			"5" : "Management Endorsed",    
+      			"6" : "Strategically Focused"
+	          }
+          },
+      "5": {
+          "question" : "How would you describe your formal corporate policies regarding the use and adoption of Open Source development?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+	          	"2" : "Not Supportive",    
+      			"3" : "Neutral",    
+      			"4" : "Encouraged For New Projects",    
+      			"5" : "Encouraged But Not Required",    
+      			"6" : "Required For New Projects"
+	          }
+          },
+      "6": {
+          "question" : "To what extent do inner source communities (i.e. communities between multiple projects that work collectively to develop software that is reusable across the organization) exist within your organization today?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "Very Small Extent",    
+      			"3" : "Small Extent",    
+      			"4" : "Moderate Extent",    
+      			"5" : "Large Extent",    
+      			"6" : "X"
+	          }
+      }
+    },
+          "Upstream Community Participation": {
+      "1": {
+          "question" : "To what extent do employees participate in upstream Open Source Software communities (i.e. Linux,  Apache etc)?",
+          "description": "XXX",
+	        "options": {
+	          	"1" : "Don't Know",    
+	          	"2" : "None",    
+      			"3" : "Very Small Extent",    
+      			"4" : "Small Extent",    
+      			"5" : "Moderate Extent",    
+      			"6" : "Large Extent"    
+            }
+      },
+      "2": {
+          "question" : "How would you best describe any formal corporate policies regarding employee participation in OSS communities?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",     
+      			"2" : "Not Supportive",    
+      			"3" : "Neutral",    
+      			"4" : "Encouraged For New Projects",    
+      			"5" : "Encouraged But Not Required",    
+      			"6" : "Required For New Projects"    
+	          }
+      },
+      "3": {
+          "question" : "How often do internal project teams fix bugs or contribute new features to Open Source components/projects?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "<10% of the time",    
+      			"3" : "10% - 25% of the time",    
+      			"4" : "25% - 50% of the time",    
+      			"5" : "> 50% of the time",    
+      			"6" : "X"   
+	          }
+      },
+      "4": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+          },
+      "5": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+          },
+      "6": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"
+	          }
+      }
+    },
+          "Governance and Legal Policies": {
+      "1": {
+          "question" : "To what extent is your legal department familiar with the implications of open source software and the differences between various open source licensing models (i.e. GPL, LGPL etc)",
+          "description": "XXX",
+	        "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "None",    
+      			"3" : "Very Small Extent",    
+      			"4" : "Small Extent",    
+      			"5" : "Moderate Extent",    
+      			"6" : "Large Extent"    
+            }
+      },
+      "2": {
+          "question" : "How involved is your legal department in setting policies and guidelines around open source software adoption and usage?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+	          	"2" : "Not Involved At All",    
+      			"3" : "Involved On a Very Limited Basis",    
+      			"4" : "Passively but Regularly Involved",    
+      			"5" : "Actively Involved",    
+      			"6" : "X"   
+          }
+      },
+      "3": {
+          "question" : "What level of support do you have for any formal corporate policies regarding the use and adoption of Open Source Software?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "Generally Discourages",    
+      			"3" : "Allows On A Case-By-Case Basis",    
+      			"4" : "Allows",    
+      			"5" : "Supports",    
+      			"6" : "Actively Encourages"
+	          }
+      },
+      "4": {
+          "question" : "How would you best describe any formal legal policies in place with regard to open source software usage and adoption?",
+          "description": "XXX",
+	          "options": {
+	          	"1" : "Don't Know",    
+	          	"2" : "Generally Discourages",    
+      			"3" : "Allows On A Case-By-Case Basis",    
+      			"4" : "Allows",    
+      			"5" : "Supports",    
+      			"6" : "Actively Encourages"
+	          }
+          },
+      "5": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+          },
+      "6": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"
+	          }
+      }
+    },
+          "Senior Management Support": {
+      "1": {
+          "question" : "To what extent is your senior management team aware of OSS adoption and community participation within the IT organization?",
+          "description": "XXX",
+	        "options": {
+	          	"1" : "Don't Know",     
+      			"2" : "None",    
+      			"3" : "Very Small Extent",    
+      			"4" : "Small Extent",    
+      			"5" : "Moderate Extent",    
+      			"6" : "Large Extent"    
+            }
+      },
+      "2": {
+          "question" : "To what extent is your senior management team supportive of OSS adoption and community participation within the IT organization?",
+          "description": "XXX",
+	        "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "None",    
+      			"3" : "Very Small Extent",    
+      			"4" : "Small Extent",    
+      			"5" : "Moderate Extent",    
+      			"6" : "Large Extent"    
+            }
+      },
+      "3": {
+          "question" : "To what extent does senior management allocate formal time and/or funding commitments towards participating in open source software community development?",
+          "description": "XXX",
+	        "options": {
+	          	"1" : "Don't Know",    
+      			"2" : "None",    
+      			"3" : "Very Small Extent",    
+      			"4" : "Small Extent",    
+      			"5" : "Moderate Extent",    
+      			"6" : "Large Extent"    
+            }
+      },
+      "4": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+          },
+      "5": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"   
+	          }
+          },
+      "6": {
+          "question" : "X",
+          "description": "XXX",
+	          "options": {
+      			"1" : "XXXXXXXXXXXX",    
+      			"2" : "XXXXXXXXXXXX",    
+      			"3" : "XXXXXXXXXXXX",    
+      			"4" : "XXXXXXXXXXXX",    
+      			"5" : "XXXXXXXXXXXX",    
+      			"6" : "XXXXXXXXXXXX"
+	          }
+        }
+    }
+}

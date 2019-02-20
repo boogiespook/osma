@@ -1,0 +1,62 @@
+{
+    "General" : {
+      "1" : "Very limited open source adoption (< 10% of new projects). No formal policies on usage, or policies that discourage adoption.",
+      "1-action" : "Work to produce a strategic business case for the use of open source.",
+      "2" : "Adoption on an ad-hoc basis (10% - 25% of new projects). No formal policy on usage, or policies that are neutral with regard to adoption.",
+      "2-action" : "Work to produce a strategic policy for the use of open source.",
+      "3" : "De facto adoption based on need (25% - 50% of new projects). Formal policy recommends, but does not require, OSS adoption for new projects.",
+      "3-action" : "Update corporate policies to promote an 'Open First' environment",
+      "4" : "Adoption by default (> 50% of new projects). Formal policy requires OSS adoption with opt-out by exception only.",
+      "4-action" : "",
+      "5" : "> 50% of projects are Open Source by default with full buy-in from all levels within the organisation.",
+      "5-action" : "&nbsp &#45"
+    },
+    "Standards and Tools" : {
+      "1" : "Very limited peer reviews and use of Agile development processes (< 10% of new projects). No concept of inner source communities. No formal policy on OSS development tools, or policies that discourage adoption.",
+      "1-action" : "Initiate a corporate initiative to promote agile development and collaborative tools",
+      "2" : "Peer reviews and agile development processes on an ad-hoc basis (10% - 25% of new projects). Inner source communities contemplated but not implemented. No formal policy on OSS development tools.",
+      "2-action" : "Promote agile processes and work towards a DevOps environment",
+      "3" : "Peer reviews and agile development processes are common (25% - 50% of new projects). Inner source communities implemented, but not on a widespread basis. Formal policy recommends, but does not require, OSS development tools.",
+      "3-action" : "Establish wider community collaboration with external organisations",
+      "4" : "Mandated and widespread use of peer reviews, often between different development teams. Widespread use of agile development processes (> 50% of new projects). Inner source communities common. Formal policy requires OSS tools adoption with opt-out by exception only.",
+       "4-action" : "Mandated and widespread use of peer reviews, often between different development teams. Widespread use of agile development processes (> 50% of new projects). Inner source communities common. Formal policy requires OSS tools adoption with opt-out by exception only.",
+     "5" : "XXXXX",
+      "5-action" : "&nbsp &#45"
+      },
+    "Upstream Participation" : {
+      "1" : "Virtually no participation in upstream OSS communities. No formal corporate guidelines on participation, or corporate guidelines that discourage participation.",
+      "1-action" : "Create an initiative to assess what relevant upstream communities exist and could be relevant for the organisation",
+      "2" : "Limited horizontal community participation on an individual basis and primarily in support roles (i.e. testing, documentation, etc.). No formal corporate guidelines on participation.",
+      "2-action" : "Define a policy which enables associates to work with upstream communities and start reaching out to upstream communities with a view of joining",
+      "3" : "Upstream community participation fairly common on an individual basis in both development and support roles. Formal corporate guidelines allow and endorse participation.",
+      "3-action" : "Work with upstream communities and perhaps run workshops and other events",
+      "4" : "Upstream community participation widespread on an institutional basis in both development and support roles. Formal corporate guidelines encourage active participation.",
+      "4-action" : "&nbsp &#45",
+      "5" : "XXXXX",
+      "5-action" : "&nbsp &#45"
+    },
+    "Legal and Governance" : {
+      "1" : "No formal OSS governance & legal policies in place. Legal counsel largely unaware of OSS implications and various licensing models (i.e. GPL, LGPL, CDDL, etc.), or aware of implications and licensing models but generally not supportive of OSS.",
+      "1-action" : "Research the various Open Source licences and discuss the possibility of whitelisting certain licence types",
+      "2" : "No formal OSS governance & legal policies in place. Legal counsel aware of OSS implications and various licensing models (i.e. GPL, LGPL, CDDL, etc.) with reviews on a case-by-case basis.",
+      "2-action" : "Work with the legal counsel to provide official documentation which can be passed amongst internal stakeholders",
+      "3" : "Formal OSS governance & legal policies in place. Legal counsel actively involved in setting clear guidelines for OSS usage, adoption, and community participation that are generally supportive of OSS.",
+      "3-action" : "&nbsp &#45",
+      "4" : "Formal OSS governance & legal policies in place. Legal counsel actively involved in setting clear guidelines for OSS usage, adoption, and community participation that are highly supportive of OSS.",
+      "4-action" : "&nbsp &#45",
+      "5" : "",
+      "5-action" : "&nbsp &#45"
+            },
+    "Management Support" : {
+      "1" : "Senior management either unaware or unsupportive of OSS adoption and community participation.",
+      "1-action" : "Provide high level training to senior management on the benefits of Open Source", 
+      "2" : "Senior management aware of OSS adoption and community participation but has a neutral outlook.",
+      "2-action" : "Work with senior managers to provide education to other areas of the organisation to promote open source adoption",
+      "3" : "Senior management passively supports OSS adoption and community participation.",
+      "3-action" : "Actively promote the benefits of open source principles within the organisation and start working to create new open source communities", 
+      "4" : "Senior management actively supports and encourages OSS adoption and community participation with formal time and/or funding allocations.",
+      "4-action" : "&nbsp &#45",
+      "5" : "Senior management actively supports and encourages OSS adoption and community participation with formal time and/or funding allocations.",
+      "5-action" : "&nbsp &#45"
+      }
+}
