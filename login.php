@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
 include 'dbconnect.php';
 connectDB();
 
-	$email = $_POST['email'];
+	$email = preg_replace("/[^A-Za-z0-9 ]/", '', $_POST['email']);
 	$password = $_POST['password'];
 	$result = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM users WHERE email = '" . $email. "' and password = '" . md5($password) . "'");
 
