@@ -660,13 +660,6 @@ function between(x, min, max) {
 
 <script>
 
-
-//print "Score: $areaAvg1   Average: " . $row3['averageGeneral'] . "<br>";
-//print "Score: $areaAvg2   Average: " . $row3['averageTools'] . "<br>";
-//print "Score: $areaAvg3   Average: " . $row3['averageUpstream'] . "<br>";
-//print "Score: $areaAvg4   Average: " . $row3['averageLegal'] . "<br>";
-//print "Score: $areaAvg5   Average: " . $row3['averageManagement'] . "<br>";
-
 		var color = Chart.helpers.color;
 		var barChartData = {
 			labels: ['General', 'Standards and Tools', 'Upstream Participation', 'Legal and Governance', 'Management Support'],
@@ -700,7 +693,15 @@ function between(x, min, max) {
 					title: {
 						display: true,
 						text: 'Maturity Comparison'
-					}
+					},
+					scales: {
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 5
+               		 }
+         		   }]
+			        }
 				}
 			});
 
