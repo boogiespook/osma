@@ -7,27 +7,21 @@
     <script src="js/justgage.js"></script>
     <title>Open Source Maturity Assessment - Results</title>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" type="text/css" href="http://overpass-30e2.kxcdn.com/overpass.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://overpass-30e2.kxcdn.com/overpass.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"/>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
-
-<!--	<script src="js/jquery-1.10.2.js"></script>-->
-<!--- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
+<script src="js/Chart.bundle.js"></script>
 </head>
 
 <body>
 <script>
-	//style all the dialogue
 	$( function() {
 		$(".dialog_help").dialog({
 			modal: true,
@@ -38,7 +32,6 @@
 		});
 	});
 	
-	//opens the appropriate dialog
 	$( function() {
 		$(".opener").click(function () {
 			//takes the ID of appropriate dialogue
@@ -48,6 +41,12 @@
 		});
 	});
 </script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+
   <nav class="navbar navbar-default" role="navigation">
   	<div class="container-fluid">
   		<div class="navbar-header">
@@ -65,11 +64,11 @@
   				<li><a href="assess.php">Run Assessment</a></li>
   				<li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
   				<li><a href="logout.php">Log Out</a></li>
-				<li><a target="_blank" href="https://github.com/boogiespook/osma2">Github</a></li>
+				<li><a target="_blank" href="https://github.com/boogiespook/osma">Github</a></li>
   				<?php } else { ?>
   				<li><a href="register.php">Register</a></li>
   				<li><a href="login.php">Login</a></li>
- 				<li><a target="_blank" href="https://github.com/boogiespook/osma2">Github</a></li>
+ 				<li><a target="_blank" href="https://github.com/boogiespook/osma">Github</a></li>
   				<?php } ?>
   			</ul>
   		</div>
@@ -90,6 +89,12 @@ $hash = $_REQUEST['hash'];
 $qq = "SELECT * FROM data WHERE hash='".mysqli_real_escape_string($db, $hash)."'";
 $res = mysqli_query($db, $qq);
 $data_array = mysqli_fetch_assoc($res);
+
+## If nothing returns (i.e. no customer), just exit
+if (empty($data_array)) {
+	exit;
+}
+
 $area1 = $area2 = $area3 = $area4 = $area5 = 0;
 $area1Total = $area2Total = $area3Total = $area4Total = $area5Total = 0;
 $totalAreas = $areasForAction = array();
@@ -132,7 +137,7 @@ switch ($overallRating) {
 		break;
 	case "2":
 		$rating = "Developing";
-		$ratingDescription = "Shortfalls in governance practices have been identified and initial steps have been taken to
+		$ratingDescription = "Potential shortfalls in governance practices have been identified and initial steps have been taken to
 rectify them. There is significant room for improvement.";
 		break;
 	case "3":
@@ -222,24 +227,44 @@ rectify them. There is significant room for improvement.";
 
     }
  }
-    window.onload = function() {
         window.myRadar = new Chart(document.getElementById("canvas"), config);
 
-};
     </script>
 
 </div>
 
 <div id="rightcol">
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Overview</a></li>
+    <li><a href="#tabs-2">Details</a></li>
+    <li><a href="#tabs-4">Notes</a></li>  
+    <li><a href="#tabs-3">To Do Lists</a></li>
+    <li><a href="#tabs-5">Comparisons</a></li>  </ul>
+      <div id="tabs-1">
 <table class="bordered">
 <tr>
-	<td colspan="2" style="text-align:center"><h3>Overall Rating</h3></td>
-	</tr>
+
 	<?php print '<td class="' . strtolower($rating) . '">' . $rating . "</td>"; ?>
-	<td style="padding-left: 5px;"><?php print $ratingDescription; ?></td>
+	<td style="padding-left: 5px;padding-right: 5px;" colspan="3"><?php print $ratingDescription; ?></td>
 </tr>
+<tr>
 </table>
-<br>
+<table class="bordered">
+<tr>
+<td><div id="overallGauge" class="200x160px"></div></td>
+	<td><div id="generalGauge" class="200x160px"></div></td>
+	<td><div id="toolsGauge" class="200x160px"></div></td>
+</tr>
+	<tr>
+	<td><div id="upstreamGauge" class="200x160px"></div></td>
+	<td><div id="legalGauge" class="200x160px"></div></td>
+	<td><div id="managementGauge" class="200x160px"></div></td>
+</tr>
+</table>  
+</div>
+  <div id="tabs-2">
 <table class="bordered">
 <thead>
 <tr>
@@ -266,14 +291,13 @@ while ($i < 5) {
 $i++;
 }
 
-#var_dump($overallScores);
-#print "<br><br>";
-#asort($overallScores);
-#var_dump($overallScores);
 
   
 ?>
 </table>
+
+  </div>
+  <div id="tabs-3">
 
 <?php
 arsort($areasForAction);
@@ -304,15 +328,13 @@ switch($itemToSearch) {
 return $actionImage;
 }
 
-print '<br><table width=50%><tr><td align=center><h4>Focus Area 1</h4></td><td align=center><h4>Focus Area 2</h4></td><td align=center><h4>Focus Area 3</h4></td></tr><tr><td align=center><img src="' . itemToSearch($firstItem) . '">';
+print '<br><table width=100%><tr><td align=center><h4>Focus Area 1</h4></td><td align=center><h4>Focus Area 2</h4></td><td align=center><h4>Focus Area 3</h4></td></tr><tr><td align=center><img src="' . itemToSearch($firstItem) . '">';
 print "<em class='icon-info opener' data-id='#dialog_" . $firstItem . "' style='cursor: pointer;'></em></p></td>";
 print '<td align=center><img src="' . itemToSearch($secondItem) . '">';
 print "<em class='icon-info opener' data-id='#dialog_" . $secondItem . "' style='cursor: pointer;'></em></p></td>";
 print '<td align=center><img src="' . itemToSearch($thirdItem) . '">';
 print "<em class='icon-info opener' data-id='#dialog_" . $thirdItem . "' style='cursor: pointer;'></em></p></td>";
 
-# Space for comparisons
-#print "<td align=center>Comparisons graph link here</td>";
 print "</tr></table>";
 ?>
 
@@ -368,6 +390,61 @@ print "</tr></table>";
 	</div>
 
 
+  </div>
+  
+  <div id="tabs-4">
+  <h4>Notes from the Assessment</h4>
+<?php
+$qq = "SELECT area1_comments as generalComments, area2_comments as toolsComments, area3_comments as upstreamComments, area4_comments as legalComments, area5_comments managementComments, comments from data where hash='".mysqli_real_escape_string($db, $hash)."'";
+#print $qq;
+$res2 = mysqli_query($db, $qq);
+$row2 = $res2->fetch_assoc();
+
+if ($row2['generalComments'] != "") {
+print "<b>General Comments</b><br>" . $row2['generalComments'] . "<br><hr>";
+}
+
+if ($row2['toolsComments'] != "") {
+print "<b>Standards and Tools</b><br>" . $row2['toolsComments'] . "<br><hr>";
+}
+
+if ($row2['upstreamComments'] != "") {
+print "<b>Upstream Participation</b><br>" . $row2['upstreamComments'] . "<br><hr>";
+}
+
+if ($row2['legalComments'] != "") {
+print "<b>Legal and Governance</b><br>" . $row2['legalComments'] . "<br><hr>";
+}
+
+if ($row2['managementComments'] != "") {
+print "<b>Management Support</b><br>" . $row2['managementComments'] . "<br><hr>";
+}
+
+if ($row2['comments'] != "") {
+print "<b>Overal Comments</b><br>" . $row2['comments'] . "<br><hr>";
+}
+
+?>
+  </div>  
+
+  <div id="tabs-5">
+
+<?php
+$qq3 = "select count(*) as total, avg(question11+question12+question13+question14+question15)/5 as averageGeneral, avg(question21+question22+question23+question24+question25+question25)/6 as averageTools, avg(question31+question32+question33)/3 as averageUpstream, avg(question41+question42+question43+question44)/4 as averageLegal, avg(question51+question52+question53)/3 as averageManagement from data";
+$res3 = mysqli_query($db, $qq3);
+$row3 = $res3->fetch_assoc();
+print "Compared to " . $row3['total'] . " other organisations";
+print '<canvas id="canvas2"></canvas>';
+
+
+?>
+  
+  </div>  
+  
+</div>
+
+
+
 
 </div>
 <!-- end of main content div -->
@@ -407,8 +484,7 @@ function between(x, min, max) {
         
         first = parseInt(name.split('-')[0],10);
         second = parseInt(name.split('-')[1],10);
-        
-        console.log(between(dc, first, second));
+
         
         if( between(dc, first, second) ){
           th.addClass(value);
@@ -418,6 +494,218 @@ function between(x, min, max) {
   });
 });
 </script>
+<script>
+  var g = new JustGage({
+    id: "overallGauge",
+    value: <?php print $overallRating; ?>,
+    min: 1,
+    max: 5,
+    title: "Overall Rating",
+        humanFriendly : true,
+        gaugeWidthScale: 1.3,
+        customSectors: [{
+          color: "#ff0000",
+          lo: 1,
+          hi: 2
+        },
+        {
+          color: "#ffbf00",
+          lo: 2.1,
+          hi: 3.5
+        }, {
+          color: "#00ff00",
+          lo: 3.6,
+          hi: 5
+        }],
+        counter: true
+  });
+</script>
+<script>
+  var g = new JustGage({
+    id: "generalGauge",
+    value: <?php print round($areaAvg1,2) . "\n"; ?>,
+    min: 1,
+    max: 5,
+    decimals: 2,
+    title: "General",
+        humanFriendly : true,
+        gaugeWidthScale: 1.3,
+        customSectors: [{
+          color: "#ff0000",
+          lo: 1,
+          hi: 2
+        },
+        {
+          color: "#ffbf00",
+          lo: 2.1,
+          hi: 3.5
+        }, {
+          color: "#00ff00",
+          lo: 3.6,
+          hi: 5
+        }],
+        counter: true    
+  });
+</script>
+
+<script>
+  var g = new JustGage({
+    id: "toolsGauge",
+    value: <?php print round($areaAvg2,2) . "\n"; ?>,
+    min: 1,
+    max: 5,
+    decimals: 2,
+    title: "Standards and Tools",
+            humanFriendly : true,
+        gaugeWidthScale: 1.3,
+        customSectors: [{
+          color: "#ff0000",
+          lo: 1,
+          hi: 2
+        },
+        {
+          color: "#ffbf00",
+          lo: 2.1,
+          hi: 3.5
+        }, {
+          color: "#00ff00",
+          lo: 3.6,
+          hi: 5
+        }],
+        counter: true
+  });
+</script>
+<script>
+  var g = new JustGage({
+    id: "upstreamGauge",
+    value: <?php print round($areaAvg3,2) . "\n"; ?>,
+    min: 1,
+    max: 5,
+    decimals: 2,
+    title: "Upstream Participation",
+            humanFriendly : true,
+        gaugeWidthScale: 1.3,
+        customSectors: [{
+          color: "#ff0000",
+          lo: 1,
+          hi: 2
+        },
+        {
+          color: "#ffbf00",
+          lo: 2.1,
+          hi: 3.5
+        }, {
+          color: "#00ff00",
+          lo: 3.6,
+          hi: 5
+        }],
+        counter: true
+  });
+</script>
+<script>
+  var g = new JustGage({
+    id: "legalGauge",
+    value: <?php print round($areaAvg4,2) . "\n"; ?>,
+    min: 1,
+    max: 5,
+    decimals: 2,
+    title: "Legal and Governance",
+            humanFriendly : true,
+        gaugeWidthScale: 1.3,
+        customSectors: [{
+          color: "#ff0000",
+          lo: 1,
+          hi: 2
+        },
+        {
+          color: "#ffbf00",
+          lo: 2.1,
+          hi: 3.5
+        }, {
+          color: "#00ff00",
+          lo: 3.6,
+          hi: 5
+        }],
+        counter: true
+  });
+</script>
+<script>
+  var g = new JustGage({
+    id: "managementGauge",
+    value: <?php print round($areaAvg5,2) . "\n"; ?>,
+    min: 1,
+    max: 5,
+    decimals: 2,
+    title: "Management Support",
+            humanFriendly : true,
+        gaugeWidthScale: 1.3,
+        customSectors: [{
+          color: "#ff0000",
+          lo: 1,
+          hi: 2
+        },
+        {
+          color: "#ffbf00",
+          lo: 2.1,
+          hi: 3.5
+        }, {
+          color: "#00ff00",
+          lo: 3.6,
+          hi: 5
+        }],
+        counter: true
+  });
+</script>
+
+
+<script>
+
+
+//print "Score: $areaAvg1   Average: " . $row3['averageGeneral'] . "<br>";
+//print "Score: $areaAvg2   Average: " . $row3['averageTools'] . "<br>";
+//print "Score: $areaAvg3   Average: " . $row3['averageUpstream'] . "<br>";
+//print "Score: $areaAvg4   Average: " . $row3['averageLegal'] . "<br>";
+//print "Score: $areaAvg5   Average: " . $row3['averageManagement'] . "<br>";
+
+		var color = Chart.helpers.color;
+		var barChartData = {
+			labels: ['General', 'Standards and Tools', 'Upstream Participation', 'Legal and Governance', 'Management Support'],
+			datasets: [{
+				label: 'Average',
+				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.red,
+				borderWidth: 1,
+				data: [ <?php print $row3['averageGeneral'] . "," . $row3['averageTools'] . "," . $row3['averageUpstream'] . "," . $row3['averageLegal'] . "," . $row3['averageManagement'];?>]	}, {
+				label: '<?php echo $data_array['client']; ?>',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.blue,
+				borderWidth: 1,
+				data: [ <?php print "$areaAvg1,$areaAvg2,$areaAvg3,$areaAvg4,$areaAvg5" ;?>]
+			}]
+
+		};
+
+		window.onload = function() {
+			        window.myRadar = new Chart(document.getElementById("canvas"), config);
+
+			var ctx = document.getElementById('canvas2').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					legend: {
+						position: 'top',
+					},
+					title: {
+						display: true,
+						text: 'Maturity Comparison'
+					}
+				}
+			});
+
+		};
+		</script>
 
 </body>
 </html>

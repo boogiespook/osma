@@ -40,14 +40,14 @@ include('functionPutFieldsets.php');
 			<ul class="nav navbar-nav navbar-right">
         <?php if (isset($_SESSION['usr_id'])) { ?>
 				<li><p class="navbar-text"><a href="assess.php">Run Assessment</a></p></li>
-				<li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
+				<li><a href="myosma.php">Signed in as <?php echo $_SESSION['usr_name']; ?></a></li>
 				<li><p class="navbar-text"><a href="logout.php">Log Out</a></p></li>
 				<li><a target="_blank" href="https://github.com/boogiespook/osma2">Github</a></li>
 								<?php } else { ?>
 				<li><a href="register.php">Register</a></li>
 				<li><a href="login.php">Login</a></li>
 				<li><a target="_blank" href="https://github.com/boogiespook/osma2">Github</a></li>
-								<?php } ?>
+			<?php } ?>
 
 			</ul>
 		</div>
@@ -60,7 +60,7 @@ include('functionPutFieldsets.php');
   <h1>Open Source Maturity Assessment</h1>
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
-  <h3>Welcome to the Red Hat Open Source Maturity Assessment.</h3>
+  <h3>Welcome to the Open Source Maturity Assessment.</h3>
 
     <p class="mainText">
 <b>AIM</b>: This maturity assessment provides a high level overview on where your organisation stands regarding the use of Open Source software and associated practices.
@@ -74,18 +74,18 @@ The assessment looks at a variety of areas regarding Open Source software includ
         <li class="mainText">Areas of Interest</li>
         <li class="mainText">General Knowledge of Open Source</li>
         <li class="mainText">Development Standards and Tools</li>
-        <li class="mainText">Upstream Community Participation</li>
+        <li class="mainText">Community Participation</li>
         <li class="mainText">Governance & Legal Policies</li>
         <li class="mainText">Senior Management Support</li>
         </ul>
 </ul>
 </p>
-<p  class="mainText">At the end of this assessment you will have a better understanding of your business goals within your organisation regarding Open Source software and methodologies and will take away an idea of next steps and recommended follow-up sessions from Red Hat Consulting to dive deep into the challenges and opportunities that face your business.</p>
+<p  class="mainText">At the end of this assessment you will have a better understanding of your business goals within your organisation regarding Open Source software and methodologies and will take away an idea of next steps and recommended follow-up sessions to dive deep into the challenges and opportunities that face your business.</p>
 
 <br>
   </div>
-  <div class="tab"><h3>Client Details</h3>
-    <p><input placeholder="Client Name" oninput="this.className = ''" name="customerName"></p>
+  <div class="tab"><h3>Organisation Details</h3>
+    <p><input placeholder="Contact Name" oninput="this.className = ''" name="customerName"></p>
     <p><input placeholder="Email Address" oninput="this.className = ''" name="rhEmail"></p>
 <?php putCountries();?>
 
@@ -176,12 +176,37 @@ print '<hr><label for="comments">Notes</label>
   <div class="tab">
   <h2>Areas of Interest</h2>
 
-<p class="mainText">Red Hat use the 3 areas of <b>Consume</b>, <b>Collaborate</b> and <b>Create</b> when understanding the main areas of interest for an organisation when it comes to Open Source software. These areas are underpinned by <b>Strategy and Governance policies</b></p>
+<p class="mainText">To better understand an organisation’s main areas of interest when it comes to Open Source software, this assessment categories the areas according to <b>Consume</b>, <b>Collaborate</b> and <b>Create</b>.  These areas are underpinned by <b>Strategy and Governance policies</b>. </p>
 <center>
-<img src="images/roundal.png">
+<table>
+<tr>
+<td class="paraStyle"><b>Consume</b><br>
+<ul>
+	<li>Lower operating expenditures & licensing costs</li>
+	<li>Access to rapid innovation</li>
+	<li>Freedom from vendor lock-in</li>
+	<li>Ability to ‘try before you buy’</li>
+</ul><br>
+<b>Collaborate</b><br>
+<ul>
+	<li>Shared development cost & risk</li>
+	<li>Shared support costs</li>
+	<li>Ability to influence project direction</li>
+	<li>Autonomy from vendor agendas</li>
+</ul>
+
+<br>
+<b>Create<br></b>
+<ul>
+	<li>Ability to lead/influence project direction</li>
+	<li>New business contacts inherent to new community</li>
+	<li>Wide-scale adoption creates services and support opportunities</li>
+</ul>
+</td>
+<td><img src="images/roundal.png"></td>
+</tr>
+</table>
 </center>
-<p class="mainText">
-Other areas which should be addressed are the other underpinning principles of Open Source software such as Transparency, Inclusivity, Adaptability and Meritocracy
 </div>
   <div class="tab">
 <p class="mainText">Which of these are the highest priority for your organisation?</p>
@@ -189,18 +214,18 @@ Other areas which should be addressed are the other underpinning principles of O
 
 <div class="row">
   <div class="column left">
-<i class="arr-left"></i><h4>Low Priority</h4>
+<i class="arr-left"></i><h4>Low Priority (0)</h4>
 </div> 
 
-  <div class="column middle">
-<h3>Consuming Open Source software</h3><input type="range" name="consume" min="0" max="5" value="0"> 
-<h3>Collaborate with Open Source communities</h3><input type="range" name="collaborate" min="0" max="5" value="0"> 
-<h3>Creating Open Source projects</h3><input type="range" name="createOS" min="0" max="5" value="0"> 
-<h3>Understanding Open Source Strategy and Governance</h3><input type="range" name="policy" min="0" max="5" value="0"> 
+<div class="column middle">
+	<h3>Consuming Open Source software</h3><input type="range" name="consume" min="0" max="5" value="0"> 
+	<h3>Collaborate with Open Source communities</h3><input type="range" name="collaborate" min="0" max="5" value="0"> 
+	<h3>Creating Open Source projects</h3><input type="range" name="createOS" min="0" max="5" value="0"> 
+	<h3>Open Source Strategy and Governance</h3><input type="range" name="policy" min="0" max="5" value="0"> 
 </div>
 
   <div class="column right">
-<i class="arr-right"></i><h4>High Priority</h4>
+<i class="arr-right"></i><h4>High Priority (5)</h4>
 </div>
 
 </div>
@@ -223,7 +248,7 @@ Other areas which should be addressed are the other underpinning principles of O
   </div>
 
   <div class="tab">
-  <h2>Upstream Community Participation</h2>
+  <h2>Community Participation</h2>
   <h4></h4>
 
 <?php printQuestions("Upstream Community Participation","3");  ?>
@@ -345,6 +370,8 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
+
 </script>
 
 

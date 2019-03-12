@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_SESSION['usr_id'])!="") {
-	header("Location: assess.php");
+	header("Location: myosma.php");
 }
 
 //check if form is submitted
@@ -19,7 +19,8 @@ connectDB();
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['usr_id'] = $row['id'];
 		$_SESSION['usr_name'] = $row['name'];
-		header("Location: assess.php");
+#		header("Location: assess.php");
+		header("Location: myosma.php");
 	} else {
 		$errormsg = "Incorrect Username or Password!!!";
 	}
@@ -32,6 +33,8 @@ connectDB();
 <title>Open Source Maturity Assessment</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="https://overpass-30e2.kxcdn.com/overpass.css"/>
+
 </head>
 <body>
 

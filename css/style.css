@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'overpass'
 }
 
 body {
@@ -8,6 +9,13 @@ body {
     font-size: 14px;
     color: #444;
 }
+
+.center-div
+{
+     margin: 0 auto;
+     width: 100px; 
+}
+
 #regForm {
   background-color: #ffffff;
   border-radius: 25px;
@@ -15,6 +23,11 @@ body {
   font-family: Overpass;
   padding: 20px;
   min-width: 400px;
+}
+
+.paraStyle {
+	text-align: left;
+	width: 60%;
 }
 
 h1 {
@@ -320,6 +333,7 @@ table {
     border-top: 1px solid #ccc;
     padding-top: 5px;
     padding-left: 5px;
+    padding-right: 5px;
     text-align: left;
 }
 
@@ -559,6 +573,34 @@ input[type=range]:focus::-ms-fill-upper {
   border-width: 0 .2em .2em 0;
   display:      inline-block;
   padding:      .20em;
+}
+
+output { 
+  position: absolute;
+  background-image: linear-gradient(top, #444444, #999999);
+  width: 40px; 
+  height: 30px; 
+  text-align: center; 
+  color: white; 
+  border-radius: 10px; 
+  display: inline-block; 
+  font: bold 15px/30px Georgia;
+  bottom: 175%;
+  left: 0;
+  margin-left: -1%;
+}
+output:after { 
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #999999;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
 }
 
 .arr-right {transform:rotate(-45deg);  -webkit-transform:rotate(-45deg);}

@@ -1,5 +1,6 @@
 <?php
 
+
 function putCountries() {
 print '
   <fieldset>
@@ -281,7 +282,7 @@ print '
 <option value="Software">Software</option>
 <option value="Telecommunications">Telecommunications</option>
 <option value="Transportation">Transportation</option>
-
+<option value="Other">Other</option>
 </select>
 
 </fieldset>
@@ -289,5 +290,6 @@ print '
 }
 
 }
+
 
 ?>

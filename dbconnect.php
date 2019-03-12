@@ -7,7 +7,7 @@ $db = ($GLOBALS["___mysqli_ston"] = mysqli_connect('localhost', 'username', 'pas
 	if (!$db) {
 	die("Unable to connect to database");
 	}
-if (!mysqli_select_db($GLOBALS["___mysqli_ston"], 'osma2')) {
+if (!mysqli_select_db($GLOBALS["___mysqli_ston"], 'osma')) {
 		die("Unable to access osma database");
 	}
 }
