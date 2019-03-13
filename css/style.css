@@ -16,6 +16,10 @@ body {
      width: 100px; 
 }
 
+.topTips {
+	text-align: left;
+}
+
 #regForm {
   background-color: #ffffff;
   border-radius: 25px;
@@ -334,7 +338,6 @@ table {
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    text-align: left;
 }
 
 .bordered th {
@@ -611,38 +614,34 @@ output:after {
 .green {color:green;   font-weight: bold;}
 
 .rudimentary {
+text-align: center;
 background-color: red;
 font-weight: bold;
 color: white;
-padding: 15px 15px 15px 15px;
 }
 
 .developing {
+text-align: center;
 background-color: orange;
-font-weight: bold;
 color: white;
-padding: 15px 15px 15px 15px;
 }
 
 .acceptable {
+text-align: center;
 background-color: blue;
-font-weight: bold;
-padding: 15px 15px 15px 15px;
 color: white;
 }
 
 .advanced {
+text-align: center;
 background-color: lightgreen;
-font-weight: bold;
 color: black;
-padding: 15px 15px 15px 15px;
 }
 
 .leading {
+text-align: center;
 background-color: green;
-font-weight: bold;
 color: white;
-padding: 15px 15px 15px 15px;
 }
 
 

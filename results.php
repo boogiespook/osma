@@ -56,7 +56,7 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="index.php"><img src="images/innovate.png">  Open Source Maturity Assessment</a>
+  			<a class="navbar-brand" href="myosma.php"><img src="images/innovate.png">  Open Source Maturity Assessment</a>
   		</div>
   		<div class="collapse navbar-collapse" id="navbar1">
   			<ul class="nav navbar-nav navbar-right">
@@ -129,28 +129,33 @@ $i++;
 
 # Create an overall rating
 $overallRating = round($totalRatingScore / 21);
-
+$isBold = "";
 switch ($overallRating) {
 	case "1":
 		$rating = "Rudimentary";
-		$ratingDescription = "Governance practices are either non-existent or in the very early stages of development";
+		$ratingRank = "<b>Rudimentary:</b>: ";
+		$ratingDescription = $ratingRank . "Governance practices are either non-existent or in the very early stages of development";
 		break;
 	case "2":
 		$rating = "Developing";
-		$ratingDescription = "Potential shortfalls in governance practices have been identified and initial steps have been taken to
+		$ratingRank = "<b>Developing</b>: ";
+		$ratingDescription = $ratingRank . "Potential shortfalls in governance practices have been identified and initial steps have been taken to
 rectify them. There is significant room for improvement.";
 		break;
 	case "3":
 		$rating = "Acceptable";
-		$ratingDescription = "The minimum governance practices are in place. There is still room for improvement.";
+		$ratingRank = "<b>Acceptable</b>: ";
+		$ratingDescription = $ratingRank . "The minimum governance practices are in place. There is still room for improvement.";
 		break;
 	case "4":
 		$rating = "Advanced";
-		$ratingDescription = "Advanced governance practices are in place and exceed performance and compliance requirements. Only minor improvements are required to achieve and be recognised as leading practices.";
+		$ratingRank = "<b>Advanced</b>: ";
+		$ratingDescription = $ratingRank . "Governance practices are in place and exceed performance and compliance requirements. Only minor improvements are required to achieve and be recognised as leading practices.";
 		break;
 	case "5":
 		$rating = "Leading";
-		$ratingDescription = "All processes and practices are recognised by others to be of the highest standard";
+		$rating = "<b>Leading</b>: ";
+		$ratingDescription = $ratingRank .  "All processes and practices are recognised by others to be of the highest standard";
 		break;
 }
 
@@ -243,15 +248,23 @@ rectify them. There is significant room for improvement.";
     <li><a href="#tabs-3">To Do Lists</a></li>
     <li><a href="#tabs-5">Comparisons</a></li>  </ul>
       <div id="tabs-1">
-<table class="bordered">
+<table class="bordered" width="100%">
+		<tr>
+			<td class="rudimentary">Rudimentary</td>		
+			<td class="developing">Developing</td>		
+			<td class="acceptable">Acceptable</td>		
+			<td class="advanced">Advanced</td>		
+			<td class="leading"> Leading</td>		
+		</tr>     
 <tr>
 
-	<?php print '<td class="' . strtolower($rating) . '">' . $rating . "</td>"; ?>
-	<td style="padding-left: 5px;padding-right: 5px;" colspan="3"><?php print $ratingDescription; ?></td>
-</tr>
+<!-- 	<?php print '<td colspan="5" class="' . strtolower($rating) . '">' . $rating . "</td></tr><tr>"; ?> -->
+	<td style="padding-left: 5px;padding-right: 5px;" colspan="5" class="<?php print strtolower($rating) ?>"><?php print $ratingDescription; ?></td></tr>
+
+ 
 <tr>
 </table>
-<table class="bordered">
+<table class="bordered" ">
 <tr>
 <td><div id="overallGauge" class="200x160px"></div></td>
 	<td><div id="generalGauge" class="200x160px"></div></td>
@@ -300,6 +313,51 @@ $i++;
   <div id="tabs-3">
 
 <?php
+
+function toDoConsume() {
+print '
+	<p>Understand Open Source license obligations</p>
+	<p>Define how Open Source integrates with existing proprietary solutions</p>
+	<p>Investigate Open Source software already running in the organisation</p>
+';
+}
+
+function toDoCreate() {		
+print '
+	<p class="topTips">Identify projects</p>
+	<p class="topTips">Identify collaborators and audience</p>
+	<p class="topTips">Define clear objectives</p>
+	<p class="topTips">Define a governance model</p>
+	<p class="topTips">Choose a license/contribution model</p>
+	<p class="topTips">Define shared control strategy</p>
+	<p class="topTips">Community success tactics</p>';
+	}
+
+function toDoCollaborate() {
+print '
+	<p class="topTips">Identify value proposition</p>
+	<p class="topTips">Identify strategic communities</p>
+	<p class="topTips">Release policy creation</p>
+	<p class="topTips">IP governance</p>
+	<p class="topTips">Process for open source participation</p>
+	<p class="topTips">Take pulse of community</p>
+	<p class="topTips">Prepare for first contribution</p>
+';
+}	
+
+function toDoPolicy() 
+{		
+print '
+	<p class="topTips">Value proposition</p>
+	<p class="topTips">Business objectives</p>
+	<p class="topTips">Company direction</p>
+	<p class="topTips">Risk tolerance</p>
+	<p class="topTips">Management & control processes</p>
+	<p class="topTips">Cultural changes & requirements</p>
+	<p class="topTips">Removal of obstacles</p>
+	<p class="topTips">Success metrics</p>
+';
+	}
 arsort($areasForAction);
 reset($areasForAction);
 #var_dump($areasForAction);
@@ -328,67 +386,56 @@ switch($itemToSearch) {
 return $actionImage;
 }
 
-print '<br><table width=100%><tr><td align=center><h4>Focus Area 1</h4></td><td align=center><h4>Focus Area 2</h4></td><td align=center><h4>Focus Area 3</h4></td></tr><tr><td align=center><img src="' . itemToSearch($firstItem) . '">';
-print "<em class='icon-info opener' data-id='#dialog_" . $firstItem . "' style='cursor: pointer;'></em></p></td>";
-print '<td align=center><img src="' . itemToSearch($secondItem) . '">';
-print "<em class='icon-info opener' data-id='#dialog_" . $secondItem . "' style='cursor: pointer;'></em></p></td>";
-print '<td align=center><img src="' . itemToSearch($thirdItem) . '">';
-print "<em class='icon-info opener' data-id='#dialog_" . $thirdItem . "' style='cursor: pointer;'></em></p></td>";
+function tipToSearch($itemToSearch) {
+switch($itemToSearch) {
+	case "Policy":
+		$tips = toDoPolicy();
+		break;
+	case "Consume":
+		$tips = toDoConsume();
+		break;
+	case "Collaborate":
+		$tips = toDoCollaborate();
+		break;
+	case "Create":
+		$tips = toDoCreate();
+		break;
+}
+return $tips;
+}
 
-print "</tr></table>";
+print '<br><table width=100%>
+<thead>
+<tr>
+	<td><h4>Focus Area 1</h4></td>
+	<td><h4>Focus Area 2</h4></td>
+	<td><h4>Focus Area 3</h4></td>
+	</tr>
+</thead>
+<tbody>
+<tr>';
+print '
+	<td align=left><img src="' . itemToSearch($firstItem) . '">';
+print tipToSearch($firstItem);
+print '	
+</td>';
+print '
+	<td align=left><img src="' . itemToSearch($secondItem) . '">';
+print tipToSearch($secondItem);
+print '
+</td>';
+print '
+	<td align=left><img src="' . itemToSearch($thirdItem) . '">';
+print tipToSearch($thirdItem);
+print '
+	</td>';
+
+print "</tbody></tr></table>";
+
+
+
+
 ?>
-
-	
-<?php	
-
-	?>
-	
-	<div class='dialog_help' id='dialog_Consume' title='Consume'>
-		<h4>To-Do List</h4>
-		<ul>
-<li>Understand Open Source license obligations</li>
-<li>Define how Open Source integrates with existing proprietary solutions</li>
-<li>Investigate Open Source software already running in the organiation</li>
-		</ul>
-	</div>
-	<div class='dialog_help' id='dialog_Collaborate' title='Collaborate'>
-		<h4>To-Do List</h4>
-		<ul>
-<li>Identify value proposition</li>
-<li>Identify strategic communities</li>
-<li>Release policy creation</li>
-<li>IP governance</li>
-<li>Process for open source participation</li>
-<li>Take pulse of community</li>
-<li>Prepare for first contribution</li>
-		</ul>
-	</div>	
-	<div class='dialog_help' id='dialog_Create' title='Create'>
-		<h4>To-Do List</h4>
-		<ul>
-<li>Identify projects</li>
-<li>Identify collaborators and audience</li>
-<li>Define clear objectives</li>
-<li>Define a governance model</li>
-<li>Choose a license/contribution model</li>
-<li>Define shared control strategy</li>
-<li>Community success tactics</li>
-		</ul>
-	</div>
-	<div class='dialog_help' id='dialog_Policy' title='Strategy & Governance'>
-		<h4>To-Do List</h4>
-		<ul>
-<li>Value proposition</li>
-<li>Business objectives</li>
-<li>Company direction</li>
-<li>Risk tolerance</li>
-<li>Management & control processes</li>
-<li>Cultural changes & requirements</li>
-<li>Removal of obstacles</li>
-<li>Success metrics</li>
-		</ul>
-	</div>
-
 
   </div>
   
@@ -665,15 +712,15 @@ function between(x, min, max) {
 			labels: ['General', 'Standards and Tools', 'Upstream Participation', 'Legal and Governance', 'Management Support'],
 			datasets: [{
 				label: 'Average',
-				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.red,
+				backgroundColor: color(window.chartColors.green).alpha(0.9).rgbString(),
+				borderColor: window.chartColors.green,
 				borderWidth: 1,
 				data: [ <?php print $row3['averageGeneral'] . "," . $row3['averageTools'] . "," . $row3['averageUpstream'] . "," . $row3['averageLegal'] . "," . $row3['averageManagement'];?>]	}, {
 				label: '<?php echo $data_array['client']; ?>',
 				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.blue,
 				borderWidth: 1,
-				data: [ <?php print "$areaAvg1,$areaAvg2,$areaAvg3,$areaAvg4,$areaAvg5" ;?>]
+				data: [ <?php print round($areaAvg1) . "," . round($areaAvg2,2) . "," . round($areaAvg3,2) . "," . round($areaAvg4,2) . "," . round($areaAvg5,2) ;?>]
 			}]
 
 		};
