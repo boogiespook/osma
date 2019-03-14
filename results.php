@@ -133,7 +133,7 @@ $isBold = "";
 switch ($overallRating) {
 	case "1":
 		$rating = "Rudimentary";
-		$ratingRank = "<b>Rudimentary:</b>: ";
+		$ratingRank = "<b>Rudimentary</b>: ";
 		$ratingDescription = $ratingRank . "Governance practices are either non-existent or in the very early stages of development";
 		break;
 	case "2":
@@ -264,7 +264,7 @@ rectify them. There is significant room for improvement.";
  
 <tr>
 </table>
-<table class="bordered" ">
+<table class="bordered">
 <tr>
 <td><div id="overallGauge" class="200x160px"></div></td>
 	<td><div id="generalGauge" class="200x160px"></div></td>
@@ -316,9 +316,9 @@ $i++;
 
 function toDoConsume() {
 print '
-	<p>Understand Open Source license obligations</p>
-	<p>Define how Open Source integrates with existing proprietary solutions</p>
-	<p>Investigate Open Source software already running in the organisation</p>
+	<p class="topTips">Understand Open Source license obligations</p>
+	<p class="topTips">Define how Open Source integrates with existing proprietary solutions</p>
+	<p class="topTips">Investigate Open Source software already running in the organisation</p>
 ';
 }
 
@@ -348,8 +348,8 @@ print '
 function toDoPolicy() 
 {		
 print '
-	<p class="topTips">Value proposition</p>
-	<p class="topTips">Business objectives</p>
+	<p class="topTips">Identify Value proposition</p>
+	<p class="topTips">Identify Business objectives</p>
 	<p class="topTips">Company direction</p>
 	<p class="topTips">Risk tolerance</p>
 	<p class="topTips">Management & control processes</p>
@@ -477,7 +477,7 @@ print "<b>Overal Comments</b><br>" . $row2['comments'] . "<br><hr>";
   <div id="tabs-5">
 
 <?php
-$qq3 = "select count(*) as total, avg(question11+question12+question13+question14+question15)/5 as averageGeneral, avg(question21+question22+question23+question24+question25+question25)/6 as averageTools, avg(question31+question32+question33)/3 as averageUpstream, avg(question41+question42+question43+question44)/4 as averageLegal, avg(question51+question52+question53)/3 as averageManagement from data";
+$qq3 = "select count(*) as total, avg(question11+question12+question13+question14+question15)/5 as averageGeneral, avg(question21+question22+question23+question24+question25+question25)/6 as averageTools, avg(question31+question32+question33)/3 as averageUpstream, avg(question41+question42+question43+question44)/4 as averageLegal, avg(question51+question52+question53)/3 as averageManagement from data WHERE hash != '".mysqli_real_escape_string($db, $hash)."'";
 $res3 = mysqli_query($db, $qq3);
 $row3 = $res3->fetch_assoc();
 print "Compared to " . $row3['total'] . " other organisations";
@@ -712,14 +712,14 @@ function between(x, min, max) {
 			labels: ['General', 'Standards and Tools', 'Upstream Participation', 'Legal and Governance', 'Management Support'],
 			datasets: [{
 				label: 'Average',
-				backgroundColor: color(window.chartColors.green).alpha(0.9).rgbString(),
+				backgroundColor: color(window.chartColors.green).alpha(0.1).rgbString(),
 				borderColor: window.chartColors.green,
-				borderWidth: 1,
+				borderWidth: 2,
 				data: [ <?php print $row3['averageGeneral'] . "," . $row3['averageTools'] . "," . $row3['averageUpstream'] . "," . $row3['averageLegal'] . "," . $row3['averageManagement'];?>]	}, {
 				label: '<?php echo $data_array['client']; ?>',
-				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				backgroundColor: color(window.chartColors.blue).alpha(0.8).rgbString(),
 				borderColor: window.chartColors.blue,
-				borderWidth: 1,
+				borderWidth: 2,
 				data: [ <?php print round($areaAvg1) . "," . round($areaAvg2,2) . "," . round($areaAvg3,2) . "," . round($areaAvg4,2) . "," . round($areaAvg5,2) ;?>]
 			}]
 
