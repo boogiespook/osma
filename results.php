@@ -715,12 +715,12 @@ function between(x, min, max) {
 				backgroundColor: color(window.chartColors.green).alpha(0.1).rgbString(),
 				borderColor: window.chartColors.green,
 				borderWidth: 2,
-				data: [ <?php print $row3['averageGeneral'] . "," . $row3['averageTools'] . "," . $row3['averageUpstream'] . "," . $row3['averageLegal'] . "," . $row3['averageManagement'];?>]	}, {
+				data: [ <?php print round($row3['averageGeneral'],2) . "," . round($row3['averageTools'],2) . "," . round($row3['averageUpstream'],2) . "," . round($row3['averageLegal'],2) . "," . round($row3['averageManagement'],2);?>]	}, {
 				label: '<?php echo $data_array['client']; ?>',
 				backgroundColor: color(window.chartColors.blue).alpha(0.8).rgbString(),
 				borderColor: window.chartColors.blue,
 				borderWidth: 2,
-				data: [ <?php print round($areaAvg1) . "," . round($areaAvg2,2) . "," . round($areaAvg3,2) . "," . round($areaAvg4,2) . "," . round($areaAvg5,2) ;?>]
+				data: [ <?php print round($areaAvg1,2) . "," . round($areaAvg2,2) . "," . round($areaAvg3,2) . "," . round($areaAvg4,2) . "," . round($areaAvg5,2) ;?>]
 			}]
 
 		};
