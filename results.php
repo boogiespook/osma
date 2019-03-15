@@ -57,6 +57,7 @@
   				<span class="icon-bar"></span>
   			</button>
   			<a class="navbar-brand" href="myosma.php"><img src="images/innovate.png">  Open Source Maturity Assessment</a>
+	
   		</div>
   		<div class="collapse navbar-collapse" id="navbar1">
   			<ul class="nav navbar-nav navbar-right">
@@ -239,7 +240,12 @@ rectify them. There is significant room for improvement.";
 </div>
 
 <div id="rightcol">
-
+		<?php
+        $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']); 			
+				if (!preg_match('/chrome/', $userAgent)) { 
+            print "<div id=browserWarning>The gauges display better in Chrome</div>"; 
+		        } 			
+		 ?>
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Overview</a></li>

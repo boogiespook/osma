@@ -255,7 +255,9 @@ legend {
 
 p { font-family: 'overpass', sans-serif; line-height: 28px; color: #666; }
 
-
+.questions {
+	font-size: 18px;
+}
 
 label {
 
@@ -268,7 +270,10 @@ margin: 10px;
 
 h3 { color: #7c795d; font-family: 'overpass', sans-serif; font-size: 28px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
 
-
+#browserWarning {
+	color: #ff0000;
+   margin: auto;
+}
 
 #wrapper {
 width: 95%;
