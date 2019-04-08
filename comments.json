@@ -4,24 +4,24 @@
       "1-action" : "Work to produce a strategic business case for the use of open source.",
       "2" : "Adoption on an ad-hoc basis (10% - 25% of projects). No formal policy on usage, or policies that are neutral with regard to adoption.",
       "2-action" : "Work to produce a strategic policy for the use of open source.",
-      "3" : "De facto adoption based on need (25% - 50% of projects). Formal policy recommends, but does not require, Open Source Software adoption for projects.",
+      "3" : "De facto adoption based on need. Formal policy recommends, but does not require, Open Source Software adoption for projects.",
       "3-action" : "Update corporate policies to promote an 'Open First' environment",
       "4" : "Adoption by default (> 50% of projects). Formal policy requires Open Source Software adoption with opt-out by exception only.",
-      "4-action" : "",
-      "5" : "> 50% of projects are Open Source by default with full buy-in from all levels within the organisation.",
-      "5-action" : "&nbsp &#45"
+      "4-action" : "Ensure policies are regularly reviewed and updated accordingly.",
+      "5" : "Large percentage of projects are Open Source by default with full buy-in from all levels within the organisation.",
+      "5-action" : "Ensure policies are regularly reviewed and updated accordingly."
     },
     "Standards and Tools" : {
-      "1" : "Very limited peer reviews and use of Agile development processes (< 10% of projects). No concept of inner source communities. No formal policy on Open Source Software development tools, or policies that discourage adoption.",
-      "1-action" : "Initiate a corporate initiative to promote agile development and collaborative tools",
-      "2" : "Peer reviews and agile development processes on an ad-hoc basis (10% - 25% of projects). Inner source communities contemplated but not implemented. No formal policy on Open Source Software development tools.",
+      "1" : "Very limited peer reviews and use of Agile development tools and processes. No or limited concept of inner source communities.",
+      "1-action" : "Initiate an organisational initiative to promote agile development and collaborative tools. Start with one team",
+      "2" : "Peer reviews and agile development tools and processes adopted on an ad-hoc basis. Inner source communities contemplated but not implemented.",
       "2-action" : "Promote agile processes and work towards a DevOps environment",
-      "3" : "Peer reviews and agile development processes are common (25% - 50% of projects). Inner source communities implemented, but not on a widespread basis. Formal policy recommends, but does not require, Open Source Software development tools.",
-      "3-action" : "Establish wider community collaboration with external organisations",
+      "3" : "Peer reviews and agile development processes are common. Inner source communities may exist, but not on a widespread basis.",
+      "3-action" : "Continue to promote agile processes and tools. Establish wider community collaboration with other areas within your organisation and also with external organisations.",
       "4" : "Mandated and widespread use of peer reviews, often between different development teams. Widespread use of agile development processes (> 50% of projects). Inner source communities common. Formal policy requires Open Source Software tools adoption with opt-out by exception only.",
-       "4-action" : "Mandated and widespread use of peer reviews, often between different development teams. Widespread use of agile development processes (> 50% of projects). Inner source communities common. Formal policy requires Open Source Software tools adoption with opt-out by exception only.",
-     "5" : "XXXXX",
-      "5-action" : "&nbsp &#45"
+       "4-action" : "Continue to promote agile processes and tools. Continue wider community collaboration with other areas within your organisation and also with external organisations.",
+     "5" : "Mandated and widespread use of peer reviews, often between different development teams. Widespread use of agile development processes. Widespread presence of Inner source communities.",
+      "5-action" : "Continue to promote agile processes and tools. Continue wider community collaboration with other areas within your organisation and also with external organisations"
       },
     "Upstream Participation" : {
       "1" : "Virtually no participation in upstream Open Source Software communities. No formal corporate guidelines on participation, or corporate guidelines that discourage participation.",
@@ -31,9 +31,9 @@
       "3" : "Upstream community participation fairly common on an individual basis in both development and support roles. Formal corporate guidelines allow and endorse participation.",
       "3-action" : "Work with upstream communities and perhaps run workshops and other events",
       "4" : "Upstream community participation widespread on an institutional basis in both development and support roles. Formal corporate guidelines encourage active participation.",
-      "4-action" : "&nbsp &#45",
-      "5" : "XXXXX",
-      "5-action" : "&nbsp &#45"
+      "4-action" : "Continue to promote upstream participation. Review and updates existing policies regularly. Get more involved with external open source events.",
+      "5" : "Upstream community participation widespread on an institutional basis. Formal corporate guidelines encourage active participation. Attendance and or hosting/sponsorship of open source events.",
+      "5-action" : "Continue to promote upstream participation. Review and updates existing policies regularly. Look to see how you could collaborate more with external organisations and partners."
     },
     "Legal and Governance" : {
       "1" : "No formal Open Source Software governance & legal policies in place. Legal counsel largely unaware of Open Source Software implications and various licensing models, or aware of implications and licensing models but generally not supportive of OSS.",
@@ -41,11 +41,11 @@
       "2" : "No formal Open Source Software governance & legal policies in place. Legal counsel aware of Open Source Software implications and various licensing models with reviews on a case-by-case basis.",
       "2-action" : "Work with the legal counsel to provide official documentation which can be passed amongst internal stakeholders",
       "3" : "Formal Open Source Software governance & legal policies in place. Legal counsel actively involved in setting clear guidelines for Open Source Software usage, adoption, and community participation that are generally supportive of OSS.",
-      "3-action" : "&nbsp &#45",
-      "4" : "Formal Open Source Software governance & legal policies in place. Legal counsel actively involved in setting clear guidelines for Open Source Software usage, adoption, and community participation that are highly supportive of OSS.",
-      "4-action" : "&nbsp &#45",
-      "5" : "",
-      "5-action" : "&nbsp &#45"
+      "3-action" : "Review and update policies regularly. Ensure the policies are easily accessible and encourage individuals to read them and provide feedback.",
+      "4" : "Formal Open Source Software governance & legal policies in place. Legal counsel actively involved in setting clear guidelines for Open Source Software usage, adoption, and community participation that are generally supportive of OSS. Awareness across the organisation of policies could be improved.",
+      "4-action" : "Review and update policies regularly, incorporating feedback from individuals across the organisation. Ensure the policies are easily accessible and encourage individuals to read them and provide feedback.",
+      "5" : "Formal Open Source Software governance & legal policies in place. Legal counsel actively involved in setting clear guidelines for Open Source Software usage, adoption, and community participation that are highly supportive of OSS. High awareness of policies across the organisation.",
+      "5-action" : "Review and update policies regularly, incorporating feedback from individuals across the organisation. Ensure individuals regularly review the policies and are aware of any changes."
             },
     "Management Support" : {
       "1" : "Senior management either unaware or unsupportive of Open Source Software adoption and community participation.",
@@ -55,8 +55,8 @@
       "3" : "Senior management passively supports Open Source Software adoption and community participation.",
       "3-action" : "Actively promote the benefits of open source principles within the organisation and start working to create new open source communities", 
       "4" : "Senior management actively supports and encourages Open Source Software adoption and community participation with formal time and/or funding allocations.",
-      "4-action" : "&nbsp &#45",
+      "4-action" : "Continue to promote the benefits of open source community participation within the organisation and encourage more participation in open source communities",
       "5" : "Senior management actively supports and encourages Open Source Software adoption and community participation with formal time and/or funding allocations.",
-      "5-action" : "&nbsp &#45"
+      "5-action" : "Continue to participate in open source communities and start working to create new open source communities."
       }
 }

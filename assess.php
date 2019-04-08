@@ -34,7 +34,7 @@ include('functionPutFieldsets.php');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.php"><img src="images/innovate.png" alt="image">  Open Source Maturity Assessment</a>
+			<a class="navbar-brand" href="myosma.php"><img src="images/innovate.png" alt="image">  Open Source Maturity Assessment</a>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar1">
 			<ul class="nav navbar-nav navbar-right">
@@ -104,7 +104,7 @@ $i = $ii = 1;
 while( $i < 7) {
   $question = $json[$area][$i]['question'];
   if ($question != "X") {
-	   print "<p>$question</p>";
+	   print "<p class=questions>$question</p>";
 	   print '<select name=question' . $section . $i . ' class="styled">';
 		   while ($ii < 7) {
 				## Output the possible answers
