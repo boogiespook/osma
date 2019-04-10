@@ -1,4 +1,4 @@
-# osma2
+# osma
 
 ## Create the MySQL/MariaDB database using database.sql and create a user:
 \# mysql -u <username> -p osma < database.sql
