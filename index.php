@@ -50,10 +50,10 @@ session_start();
 				<li><a href="assess.php">Run Assessment</a></li>
 				<li><a href="#">Signed in as <?php echo $_SESSION['usr_name']; ?></a></li>
 				<li><a href="logout.php">Log Out</a></li>
-				<li><a target="_blank" href="https://github.com/boogiespook/osma2">GitHub</a></li>
+				<li><a target="_blank" href="https://github.com/boogiespook/osma">GitHub</a></li>
 				<?php } else { ?>
 				<li><a href="register.php">Register</a></li>
-				<li><a target="_blank" href="https://github.com/boogiespook/osma2">GitHub</a></li>
+				<li><a target="_blank" href="https://github.com/boogiespook/osma">GitHub</a></li>
 				<?php } ?>
 
 			</ul>
